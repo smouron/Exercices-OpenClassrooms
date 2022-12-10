@@ -1,4 +1,4 @@
-# Concevez votre site web avec PHP et MySQL
+# OpenClassRooms
 
 Ce dépôt git contient mes avancés dans la réalisation des files rouges et des exercices
 qui sont fait durant ces cours.
