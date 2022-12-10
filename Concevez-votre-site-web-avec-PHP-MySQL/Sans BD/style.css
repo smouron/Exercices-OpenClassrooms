@@ -1,0 +1,9 @@
+div .container-form-demi {
+	display: flex;
+	justify-content: space-between;
+}
+
+div .form-demi {	
+  width: 48%;
+}
+

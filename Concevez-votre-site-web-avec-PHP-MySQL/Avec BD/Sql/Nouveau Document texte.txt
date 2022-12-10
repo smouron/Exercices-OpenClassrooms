@@ -1,0 +1,41 @@
+SELECT * FROM recipes WHERE is_enabled = TRUE;
+SELECT * FROM recipes WHERE is_enabled = 1 LIMIT 2;
+SELECT * FROM recipes WHERE is_enabled = 1 LIMIT 3 OFFSET 1;
+SELECT * FROM recipes WHERE is_enabled = 1 ORDER BY title; (ASC) / (DESC)
+SELECT * FROM recipes WHERE author = 'mickael.andrieu@exemple.com AND is_enabled = 1';
+
+SELECT * FROM users WHERE pseudo = 'exca';
+
+// Requete fixe
+$sqlQuery = 'SELECT * FROM recipes WHERE author = 'mickael.andrieu@exemple.com';
+
+$recipesStatement = $db->prepare($sqlQuery);
+$recipesStatement->execute();
+$recipes = $recipesStatement->fetchAll();
+
+// Requete dynamique - v1
+$sqlQuery = 'SELECT * FROM recipes WHERE author = ?;
+
+$recipesStatement = $db->prepare($sqlQuery);
+$recipesStatement->execute('mickael.andrieu@exemple.com');
+$recipes = $recipesStatement->fetchAll();
+
+
+$author = htmlspecialchars($_GET['author'])
+$sqlQuery = 'SELECT * FROM recipes WHERE author = ?;
+
+$recipesStatement = $db->prepare($sqlQuery);
+$recipesStatement->execute($author);
+$recipes = $recipesStatement->fetchAll();
+
+
+// Requete dynamique - v2
+$author = htmlspecialchars($_GET['author'])
+$sqlQuery = 'SELECT * FROM recipes WHERE author = :author2 AND is_enabled = :is_enabled2 ;
+
+$recipesStatement = $db->prepare($sqlQuery);
+$recipesStatement->execute([
+	'author2' => $author,
+	'is_enabled2' => true,
+]);
+$recipes = $recipesStatement->fetchAll();

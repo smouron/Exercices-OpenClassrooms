@@ -1,0 +1,59 @@
+div .container-form-demi {
+  display: flex;
+  justify-content: space-between;
+}
+
+div .form-24 {
+  width: 24%;
+}
+
+div .form-48 {
+  width: 48%;
+}
+
+div .form-74 {
+  width: 74%;
+}
+
+em {
+  color: darkred;
+}
+
+label {
+  font-size: calc(1rem + 0.3vw);
+}
+
+.recipe {
+  border: 1px solid rgb(243, 242, 242);
+  border-radius: 10px;
+  padding: 5px;
+  margin-top: 5px;
+}
+
+.container-recipe {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.recipe-nav {
+  display: flex;
+  flex-direction: row;
+}
+
+.recipe-nav li {
+  margin: 0 5px 5px;
+}
+
+.recipe-nav a {
+  border: 1px solid rgb(243, 242, 242);
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.recipe-nav a:hover,
+.recipe-nav a:focus {
+  border-radius: 10px;
+  border-color: #a4acb8;
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgba(115, 123, 134, 0.25);
+}
