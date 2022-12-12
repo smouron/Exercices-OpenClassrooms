@@ -55,24 +55,31 @@ include_once './variables.php';
         if (!is_numeric($dataId)) {
             echo '<div class="alert alert-danger" role="alert">L\'identifiant de la recette est manquant ou invalide.</div>';
             header('Refresh:2; url=' . $pageRetour);
-            return;
+            exit();
         }
+    }
+
+    if (!isset($getData['title'])) {
+        echo '<div class="alert alert-danger" role="alert">Le nom de de la recette est manquant ou invalide.</div>';
+        header('Refresh:2; url=' . $pageRetour);
+        exit();
+    } else {
+        $dataTitle = htmlspecialchars(strip_tags($getData['title']));
     }
 
     // Contrôle si la recette existe
     if (!getvalidIdRecipe($dataId, $recipes)) {
         echo '<div class="alert alert-danger" role="alert">Cette recette n\'existe pas ou n\'a pas été trouvée.</div>';
-        header('Refresh:3; url=' . $pageRetour);
-        // header('Refresh:3; url=' . $_SERVER['HTTP_REFERER']);
-        return;
+        header('Refresh:2; url=' . $pageRetour);
+        // header('Refresh:2; url=' . $_SERVER['HTTP_REFERER']);
+        exit();
     }
     ?>
 
-        <h1>Suppression de la recette " n° 
-            <?php echo $dataId; ?>
-        " ?</h1>
+        <h1>Suppression d'une recette</h1>
         <hr>     
-            <p><em>ATTENTION !!!</em> Toute suppression est définitive.</p>
+        <h3>Recette "<?php echo $getData['title']; ?>"</h3>
+        <p><em>ATTENTION !!!</em> Toute suppression est définitive.</p>
             <form method="POST" action="<?php echo $rootUrl .
                 'recipe/submit_deleteRecipe.php' .
                 $addOn2; ?>">  

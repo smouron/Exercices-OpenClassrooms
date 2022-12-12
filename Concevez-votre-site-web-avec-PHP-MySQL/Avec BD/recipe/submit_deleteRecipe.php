@@ -65,7 +65,7 @@ include_once './variables.php';
      // Contrôle si la recette existe
      if (!getvalidIdRecipe($dataId, $recipes)) {
          echo '<div class="alert alert-danger" role="alert">Cette recette n\'existe pas ou n\'a pas été trouvée.</div>';
-         header('Refresh:3; url=' . $pageRetour);
+         header('Refresh:2; url=' . $pageRetour);
          exit();
      }
 

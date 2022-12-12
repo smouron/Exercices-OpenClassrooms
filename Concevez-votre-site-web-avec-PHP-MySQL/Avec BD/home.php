@@ -108,7 +108,6 @@ include_once './variables.php';
                 </h3>
                 <div><?php echo $recipe['recipe']; ?></div>
                 <em><?php echo displayAuthor($recipe['author'], $users); ?></em>
-                <?php if (isset($_SESSION['USER_NAME'])): ?>
                 <div class="container-recipe">
                     <ul class="navbar-nav recipe-nav">                        
                         <!-- Calcule du nombre d'avis pour la recette et de la note moyenne -->
@@ -131,8 +130,9 @@ include_once './variables.php';
                                 $recipe['recipe_id'] .
                                 $addOn1; ?>">
                                     <?php echo $starNote; ?>
-                                <span class="link-primary text-decoration-none"><?php echo $nbAvis; ?> avis</span></a>  
+                                    <span class="link-primary text-decoration-none"><?php echo $nbAvis; ?> avis</span></a>  
                         </li>
+                        <?php if (isset($_SESSION['USER_NAME'])): ?>
                         <?php if ($_SESSION['USER_LEVEL'] >= 2): ?>
                             <li>
                                 <!-- link-warning / link-dark / link-danger / link-primaire  / link-secondaire -->
@@ -147,12 +147,14 @@ include_once './variables.php';
                                 <a class="link-danger text-decoration-none" href="<?php echo $rootUrl .
                                     'recipe/deleteRecipe.php?id=' .
                                     $recipe['recipe_id'] .
+                                    '&title=' .
+                                    $recipe['title'] .
                                     $addOn1; ?>"><i class="fas fa-trash-alt"></i> Supprimer</a>
                             </li>
                         <?php endif; ?>                            
+                        <?php endif; ?>  
                     </ul>
                     </div>  
-                <?php endif; ?>  
             </article>
         <?php endforeach; ?>
     </div> 
