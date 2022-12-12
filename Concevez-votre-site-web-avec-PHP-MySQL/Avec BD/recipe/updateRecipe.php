@@ -55,15 +55,15 @@ include_once './variables.php';
         if (!is_numeric($dataId)) {
             echo '<div class="alert alert-danger" role="alert">L\'identifiant de la recette est manquant ou invalide.</div>';
             header('Refresh:2; url=' . $pageRetour);
-            return;
+            exit();
         }
     }
 
     // Contrôle si la recette existe
     if (!getvalidIdRecipe($dataId, $recipes)) {
         echo '<div class="alert alert-danger" role="alert">Cette recette n\'existe pas ou n\'a pas été trouvée.</div>';
-        header('Refresh:3; url=' . $pageRetour);
-        return;
+        header('Refresh:2; url=' . $pageRetour);
+        exit();
     }
 
     // CRécupération des données de la recette
@@ -72,10 +72,9 @@ include_once './variables.php';
 // echo $getData . " " . $recipes[$getData];
 ?>
         <h1>Nouvelle recette</h1>
-        <hr>     
             <form method="POST" action="<?php echo $rootUrl .
                 'recipe/submit_updateRecipe.php' .
-                $addOn; ?>" enctype="multipart/form-data">                
+                $addOn2; ?>" enctype="multipart/form-data">             
                 <div class="container-form-demi">
                     <div class="mb-3 form-24">
                     <label for="recipe_id" class="form-label">Numéro de la recette <em>**</em></label>                    

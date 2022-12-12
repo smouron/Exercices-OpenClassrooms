@@ -60,29 +60,29 @@ include_once './variables.php';
   if (!isset($postData) || !is_numeric($postData['recipe_id'])) {
       echo '<div class="alert alert-danger" role="alert">L\'identifiant de la recette est manquant ou invalide.</div>';
       header('Refresh:3; url=' . $pageRetour);
-      return;
+      exit();
   }
 
   // Contrôle si la recette existe
   if (!getvalidIdRecipe($postData['recipe_id'], $recipes)) {
       echo '<div class="alert alert-danger" role="alert">Cette recette n\'existe pas ou n\'a pas été trouvée.</div>';
       header('Refresh:3; url=' . $pageRetour);
-      return;
+      exit();
   }
 
   //   Contrôle si des données ont bien été renseignées
   if ($postData['title'] == '' && $postData['recipe'] == '') {
       echo '<div class="alert alert-danger" role="alert">Les données sont incomplètes. On ne peut pas enregister cette recette.</div>';
       header('Refresh:3; url=' . $pageRetour);
-      return;
+      rexit();
   } elseif ($postData['title'] == '') {
       echo '<div class="alert alert-danger" role="alert">Le titre est manquant. On ne peut pas enregister cette recette.</div>';
       header('Refresh:3; url=' . $pageRetour);
-      return;
+      exit();
   } elseif ($postData['recipe'] == '') {
       echo '<div class="alert alert-danger" role="alert">Il n\'y a pas de recette. On ne peut pas enregister cette recette.</div>';
       header('Refresh:3; url=' . $pageRetour);
-      return;
+      exit();
   }
 
   $recipe_id = strip_tags($postData['recipe_id']);

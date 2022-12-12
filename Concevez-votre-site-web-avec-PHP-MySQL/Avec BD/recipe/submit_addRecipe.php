@@ -60,7 +60,7 @@ include_once './variables.php';
   if ($postData['title'] == '' && $postData['recipe'] == '') {
       echo '<div class="alert alert-danger" role="alert">Les données sont incomplètes. On ne peut pas enregister cette recette.</div>';
       header('Refresh:3; url=' . $pageRetour);
-      return;
+      exit();
   } elseif ($postData['title'] == '') {
       echo '<div class="alert alert-danger" role="alert">Le titre est manquant. On ne peut pas enregister cette recette.</div>';
       header('Refresh:3; url=' . $pageRetour);
@@ -69,7 +69,7 @@ include_once './variables.php';
       echo '<div class="alert alert-danger" role="alert">Il n\'y a pas de recette. On ne peut pas enregister cette recette.</div>';
       header('Refresh:3; url=' . $pageRetour);
       //   header('Refresh:3; url=' . $_SERVER['HTTP_REFERER']);
-      return;
+      exit();
   }
 
   //  strip_tags() retire les balises HTML

@@ -74,3 +74,123 @@ function getDataRecipe(string $recipe_id, array $recipes): array
 }
 
 return;
+
+// Recupérer les données d'1 utilisateur
+function getDataUser(string $user_id, array $users): array
+{
+    $dataUser = [];
+    foreach ($users as $user) {
+        if (array_key_exists('user_id', $user)) {
+            if ($user['user_id'] == $user_id) {
+                $dataUser = $user;
+            }
+        }
+    }
+
+    return $dataUser;
+}
+
+return;
+
+// Recupérer les données d'1 commentaire pour 2 recette
+function getDataComments(string $recipe_id, array $comments): array
+{
+    $count = 0;
+    $dataComments = [];
+    foreach ($comments as $comment) {
+        if (array_key_exists('recipe_id', $comment)) {
+            if ($comment['recipe_id'] == $recipe_id) {
+                $dataComments[$count] = $comment;
+                $count++;
+            }
+        }
+    }
+
+    return $dataComments;
+}
+
+return;
+
+// Calcule de la note
+function calcNote(string $recipe_id, array $comments): string
+{
+    $note = 0;
+    $count = 0;
+
+    foreach ($comments as $comment) {
+        if (array_key_exists('ranking', $comment)) {
+            if ($comment['recipe_id'] == $recipe_id) {
+                $note = $note + $comment['ranking'];
+                $count++;
+            }
+        }
+    }
+
+    return $note;
+}
+return;
+
+// Convertire la note en étoiles
+function getStarNote(int $nbAvis, float $note): string
+{
+    $noteTotal = 0;
+    if ($nbAvis >= 1) {
+        $noteTotal = $note / $nbAvis;
+    }
+
+    $entierTotal = (int) $noteTotal;
+    $resteTotal = $noteTotal - $entierTotal;
+    $roundTotal = ceil($noteTotal);
+
+    $starNote = '';
+
+    for ($i = 1; $i <= 5; $i++) {
+        if ($entierTotal >= $i) {
+            $starNote = $starNote . '<i class="fas fa-star"></i>';
+        } elseif ($roundTotal >= $i) {
+            $starNote = $starNote . '<i class="fas fa-star-half-alt"></i>';
+        } else {
+            $starNote = $starNote . '<i class="far fa-star"></i>';
+        }
+    }
+    return $starNote;
+}
+
+return;
+
+// Convertire la note en étoiles colorées
+function getStarNoteColor(int $nbAvis, float $note): string
+{
+    $noteTotal = 0;
+    if ($nbAvis >= 1) {
+        $noteTotal = $note / $nbAvis;
+    }
+
+    $entierTotal = (int) $noteTotal;
+    $resteTotal = $noteTotal - $entierTotal;
+    $roundTotal = ceil($noteTotal);
+
+    $starNote = '';
+
+    if ($noteTotal >= 4.5) {
+        $starNote = '<div class="text-success me-sm-3">';
+    } elseif ($noteTotal > 1) {
+        $starNote = '<div class="text-warning me-sm-3">';
+    } else {
+        $starNote = '<div class="text-danger me-sm-3">';
+    }
+    for ($i = 1; $i <= 5; $i++) {
+        if ($entierTotal >= $i) {
+            $starNote = $starNote . '<i class="fas fa-star"></i>';
+        } elseif ($roundTotal >= $i) {
+            $starNote = $starNote . '<i class="fas fa-star-half-alt"></i>';
+        } else {
+            $starNote = $starNote . '<i class="far fa-star"></i>';
+        }
+    }
+
+    $starNote = $starNote . '</div>';
+    return $starNote;
+}
+
+return;

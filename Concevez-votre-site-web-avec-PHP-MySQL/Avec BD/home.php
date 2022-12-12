@@ -110,22 +110,44 @@ include_once './variables.php';
                 <em><?php echo displayAuthor($recipe['author'], $users); ?></em>
                 <?php if (isset($_SESSION['USER_NAME'])): ?>
                 <div class="container-recipe">
-                    <ul class="navbar-nav recipe-nav">
+                    <ul class="navbar-nav recipe-nav">                        
+                        <!-- Calcule du nombre d'avis pour la recette et de la note moyenne -->
+                        <?php
+                        $dataComments = getDataComments(
+                            $recipe['recipe_id'],
+                            $comments
+                        );
+                        $nbAvis = sizeof($dataComments);
+                        $note = calcNote($recipe['recipe_id'], $comments);
+                        $starNote = getStarNote($nbAvis, $note);
+                        $noteTotal = 0;
+                        if ($nbAvis >= 1) {
+                            $noteTotal = $note / $nbAvis;
+                        }
+                        ?>
+                        <li>
+                            <a class="link-warning text-decoration-none" href="<?php echo $rootUrl .
+                                'recipe/commentRecipe.php?id=' .
+                                $recipe['recipe_id'] .
+                                $addOn1; ?>">
+                                    <?php echo $starNote; ?>
+                                <span class="link-primary text-decoration-none"><?php echo $nbAvis; ?> avis</span></a>  
+                        </li>
                         <?php if ($_SESSION['USER_LEVEL'] >= 2): ?>
                             <li>
                                 <!-- link-warning / link-dark / link-danger / link-primaire  / link-secondaire -->
-                                <a class="link-primaire" href="<?php echo $rootUrl .
+                                <a class="link-success text-decoration-none" href="<?php echo $rootUrl .
                                     'recipe/updateRecipe.php?id=' .
                                     $recipe['recipe_id'] .
-                                    $addOn1; ?>"><i class="fas fa-edit"> Editer</i></a>
+                                    $addOn1; ?>"><i class="fas fa-edit"></i> Editer</a>
                             </li>
                         <?php endif; ?>  
                         <?php if ($_SESSION['USER_LEVEL'] >= 4): ?>
                             <li>
-                                <a class="link-danger" href="<?php echo $rootUrl .
+                                <a class="link-danger text-decoration-none" href="<?php echo $rootUrl .
                                     'recipe/deleteRecipe.php?id=' .
                                     $recipe['recipe_id'] .
-                                    $addOn1; ?>"><i class="fas fa-trash-alt"> Supprimer</i></a>
+                                    $addOn1; ?>"><i class="fas fa-trash-alt"></i> Supprimer</a>
                             </li>
                         <?php endif; ?>                            
                     </ul>

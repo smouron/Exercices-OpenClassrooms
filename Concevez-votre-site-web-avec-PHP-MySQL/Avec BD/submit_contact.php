@@ -60,8 +60,8 @@ include_once './variables.php';
             // Contrôle si on a bien reçu une donnée
             if (!isset($postData)) {
                 echo '<div class="alert alert-danger" role="alert">Données manquantes ou invalides.</div>';
-                header('Refresh:3; url=' . $pageRetour);
-                return;
+                header('Refresh:2; url=' . $pageRetour);
+                rexit();
             }
 
             // Controle si on a un Nom
@@ -84,7 +84,7 @@ include_once './variables.php';
             if (!isset($postData['email'])) {
                 echo '<div class="alert alert-danger" role="alert">Votre adresse mail est manquante !!!</p></div>';
                 header('Refresh:2; url=' . $pageRetour);
-                return;
+                exit();
             } elseif (
                 !filter_var($postData['email'], FILTER_VALIDATE_EMAIL) ||
                 empty($postData['email'])
@@ -92,7 +92,7 @@ include_once './variables.php';
                 // Contrôle que l'adresse mail est valide et pas vide
                 echo '<div class="alert alert-danger" role="alert">Votre adresse mail est invalide ou manquante !!!</p></div>';
                 header('Refresh:2; url=' . $pageRetour);
-                return;
+                exit();
             } else {
                 echo '<p class="card-text"><b>Email</b> : ' .
                     strip_tags($postData['email']) .
@@ -103,7 +103,7 @@ include_once './variables.php';
                 // Contrôle que le message n'est pas vide
                 echo '<div class="alert alert-danger" role="alert">Le message est manquant.</p></div>';
                 header('Refresh:2; url=' . $pageRetour);
-                return;
+                exit();
             } else {
                 //  htmlspecialchars : modifie les balises HTML pour qu'elles ne soient pas traitées comme balises
                 //  strip_tags : retire les balaises HTML
@@ -190,7 +190,7 @@ include_once './variables.php';
                 header('Refresh:2; url=' . $pageRetour);
             }
 
-            return;
+            exit();
             ?>
         </div>
        

@@ -58,7 +58,7 @@ include_once './variables.php';
          if (!is_numeric($dataId)) {
              echo '<div class="alert alert-danger" role="alert">L\'identifiant de la recette est manquant ou invalide.</div>';
              header('Refresh:2; url=' . $pageRetour);
-             return;
+             exit();
          }
      }
 
@@ -66,7 +66,7 @@ include_once './variables.php';
      if (!getvalidIdRecipe($dataId, $recipes)) {
          echo '<div class="alert alert-danger" role="alert">Cette recette n\'existe pas ou n\'a pas été trouvée.</div>';
          header('Refresh:3; url=' . $pageRetour);
-         return;
+         exit();
      }
 
      $sqlQuery = 'DELETE FROM recipes WHERE recipe_id = :id';
