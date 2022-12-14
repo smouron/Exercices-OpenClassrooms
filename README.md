@@ -18,6 +18,8 @@ Mais également des essais effectués suite à certains cours.
 - une tri filtre acsendant / descendant qui reste actif même quand on change de page
 - la gestion des recettes qui ne sont pas affichées
 - la gestion d"un niveau d'autorisation avec les utilisateurs (avec une notion d'amin.)
+- ajout d'affichage de commentaires
+- ajout de l'affichage de notes avec des étoiles.
 
 ## Exercices_Personnels
 
