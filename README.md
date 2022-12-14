@@ -7,7 +7,13 @@ Mais également des essais effectués suite à certains cours.
 
 ## Cours OpenClassRooms
 
-### Concevez-votre-site-web-avec-PHP-MySQL - Fait en décembre 2022
+### Apprenez à créer votre site web avec HTML5 et CSS3
+
+#### Carnet de voyage de Totor / responsive design
+
+    - Reproduction du cour sans ajout personnel particulier
+
+### Concevez votre site web avec PHP et MySQL - Fait en décembre 2022
 
 #### 1ère partie : réalisation du site sans base de données
 
@@ -15,11 +21,11 @@ Mais également des essais effectués suite à certains cours.
 
 #### Ajout de fonctionnalité par rapport à ce qui était demandé :
 
-- une tri filtre acsendant / descendant qui reste actif même quand on change de page
-- la gestion des recettes qui ne sont pas affichées
-- la gestion d"un niveau d'autorisation avec les utilisateurs (avec une notion d'amin.)
-- ajout d'affichage de commentaires
-- ajout de l'affichage de notes avec des étoiles.
+    - une tri filtre acsendant / descendant qui reste actif même quand on change de page
+    - la gestion des recettes qui ne sont pas affichées
+    - la gestion d"un niveau d'autorisation avec les utilisateurs (avec une notion d'amin.)
+    - ajout d'affichage de commentaires
+    - ajout de l'affichage de notes avec des étoiles.
 
 ## Exercices_Personnels
 
