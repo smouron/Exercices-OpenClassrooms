@@ -32,5 +32,5 @@ Mais également des essais effectués suite à certains cours.
 
 ### Copie OpenClassRooms - Fait en novembre 2022
 
-Tentative des faire une copie du site d'OpenClassRooms (page Cours en libre accès).
+Tentative de faire une copie du site d'OpenClassRooms (page Cours en libre accès).
 Uniquement la partie visible (HTML + CSS).

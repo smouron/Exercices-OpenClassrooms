@@ -69,7 +69,6 @@ a:hover {
   color: #7451eb;
 }
 
-
 h1 {
   font-family: 'Inter', 'Inter-Bold';
   font-size: 2rem;
@@ -93,6 +92,13 @@ p {
   display: block;
 }
 
+ul,
+li,
+a {
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
 span {
   font-size: 0.75rem;
   letter-spacing: 0px;
@@ -106,6 +112,12 @@ button {
   font-weight: 700;
   cursor: pointer;
   color: #271a38;
+  -webkit-transition: all 0.7s ease;
+  transition: all 0.7s ease;
+}
+
+.separateur {
+  color: rgb(204, 204, 204);
 }
 
 /* ************ BODY ************ */
@@ -118,35 +130,68 @@ body {
   color: #271a38;
 }
 
+/* Gestion de la flèche sur les boutons */
+button .down {
+  /* visibility: hidden; */
+  /* visibility: visible; */
+  display: contents;
+  /* display: none; */
+}
+
+button .up {
+  /* visibility: hidden; */
+  /* visibility: collapse; */
+  /* visibility: visible; */
+  /* display: contents; */
+  display: none;
+}
+
+button:active .up {
+  /* visibility: hidden; */
+  /* visibility: visible; */
+  display: contents;
+  /* display: none; */
+}
+
+button:active .down {
+  /* visibility: hidden; */
+  /* visibility: collapse; */
+  /* visibility: visible; */
+  /* display: contents; */
+  display: none;
+}
+
 /* ************ HEADER ************ */
 header {
- border-bottom: 1px solid #b8b8b856;
+  border-bottom: 1px solid #b8b8b856;
 }
 
 .header {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
-  margin: 10px auto;
-  width: 90%;
+  margin: auto;
+  width: 100%;
 }
 
 .min-header {
-  visibility: hidden;
+  /* visibility: hidden; */
+  /* display: contents; */
+  display: none;
 }
 
 header img {
-  width: 214px;
+  width: 210px;
 }
 
 header ul {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 }
 
 header li {
-  margin: 10px 15px;
+  margin: 20px;
 }
 
 .button-formations {
@@ -155,6 +200,8 @@ header li {
   font-size: 16px;
   font-weight: 300;
   white-space: nowrap;
+  -webkit-transition: all 0.7s ease;
+  transition: all 0.7s ease;
 }
 
 .button-formations:hover {
@@ -186,6 +233,7 @@ header li {
 }
 
 .recherche {
+  margin-left: 50px;
   text-align: center;
   font-size: 1.4rem;
   padding-left: 50px;
@@ -203,13 +251,17 @@ header li {
 /* ************ MAIN ************ */
 /* ************ article ************  */
 main {
-	margin: 30px auto;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 15px auto;
 }
 
-
 article {
+  margin: 10px auto;
   text-align: left;
-  margin: 20px 140px;
+  width: 95%;
 }
 
 .filtres {
@@ -243,10 +295,12 @@ article {
 
 .min-article {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 20px auto;
+  width: 90%;
   visibility: hidden;
+  /* display: none; */
   height: 0;
 }
 
@@ -289,7 +343,7 @@ article {
   border-radius: 5px;
   margin: 10px auto;
   text-align: left;
-  width: 80%;
+  width: 95%;
   transition: 0.5s;
 }
 
@@ -444,33 +498,32 @@ article {
 
 /* ************ FOOTER ************ */
 footer {
+  margin-top: 15px;
   display: flex;
+  flex-direction: row;
   justify-content: space-around;
-  margin: auto;
   text-align: center;
-  border-top: 1px solid rgb(207, 207, 207);
   width: 100%;
+  border-top: 1px solid rgb(207, 207, 207);
 }
 
-.container-footer {	
-  width: 90%;
-  /* display: flex; */
-  /* justify-content: space-around; */
-
+.container-footer {
   display: grid;
-  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-columns: 250px 250px 320px 320px;
+  margin: 10px auto;
 }
 
 .footer-col1,
 .footer-col2,
-.footer-col3 {
+.footer-col3,
+.footer-col4 {
   text-align: left;
   padding: 0 30px;
 }
 
 footer h3 {
   font-family: 'Inter', 'Inter-Medium';
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   line-height: 18px;
   font-weight: 500;
   padding: 30px 0 10px;
@@ -486,7 +539,7 @@ footer li {
 }
 
 footer a {
-  /* display: inline-block; */
+  font-size: 0.9rem;
   word-wrap: break-word;
   overflow-wrap: break-word;
   white-space: normal;
@@ -551,11 +604,8 @@ footer a {
   flex-direction: row;
 }
 
-.langue select {
+.langue {
   margin: 20px 10px;
-  background: none;
-  border: none;
-  border-bottom: 1px solid black;
   width: 100%;
   height: 30px;
   font-family: 'Inter', sans-serif;
@@ -564,20 +614,43 @@ footer a {
   align-items: center;
 }
 
-.langue select:hover {
-  padding-top: 1px;
-  border-bottom: 2px solid black;
-}
-
-.langue select:focus,
-.langue select:active {
-  padding-top: 1px;
+.button-language {
+  background: none;
+  border: none;
   border-bottom: 2px solid #7250e8;
   background: #e7e7e781;
+  width: 300px;
+  height: 30px;
+  text-align: left;
+  margin-left: 5px;
+  font-size: 16px;
+  font-weight: 300;
+  white-space: nowrap;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+  -webkit-transition: all 0.7s ease;
+  transition: all 0.7s ease;
 }
 
-.langue option {
-  margin-top: 10px;
+.container-langue {
+  display: flex;
+  width: 20px;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  right: 0px;
+  position: absolute;
+}
+
+.langue button:active {
+  background: transparent;
+}
+
+.button-language i {
+  font-size: 0.8rem;
+  margin: 10px;
 }
 
 /* ************ social ************ */
@@ -586,6 +659,7 @@ footer a {
   border: 1px solid rgb(26, 25, 25);
   width: 38px;
   height: 38px;
+  font-size: 16px;
   border-radius: 150%;
   display: flex;
   justify-content: space-around;
@@ -645,7 +719,6 @@ footer a {
   height: 90%;
 }
 
-
 /*                                             */
 /* ************** MEDIA QUERIES ************** */
 /*                                             */
@@ -673,7 +746,9 @@ footer a {
   }
 
   .min-header {
-    visibility: visible;
+    /* visibility: visible; */
+    display: contents;
+    /* display: none; */
     height: auto;
   }
 
@@ -690,6 +765,6 @@ footer a {
 
   .min-article {
     visibility: visible;
-    height: 100px;
+    height: 80px;
   }
 }
