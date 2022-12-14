@@ -12,6 +12,7 @@ Mais également des essais effectués suite à certains cours.
 #### Carnet de voyage de Totor / responsive design
 
     - Reproduction du cour sans ajout personnel particulier
+    - Ajout diférents effets CSS
 
 ### Concevez votre site web avec PHP et MySQL - Fait en décembre 2022
 

@@ -64,9 +64,42 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+  position: relative;
 }
 
-/* Effet pulsé */
+/* Effet de point qui défille sur le séparateur du Header */
+header::after {
+  content: '';
+  position: absolute;
+  width: 5px;
+  height: 3px;
+  bottom: 0px;
+  z-index: 99;
+  background: rgb(250, 249, 249);
+  animation: moving 6s infinite linear;
+  animation-direction: alternate;
+}
+
+@keyframes moving {
+  0% {
+    opacity: 0.13;
+    left: 2%;
+  }
+  10% {
+    opacity: 1;
+    left: 10%;
+  }
+  90% {
+    opacity: 1;
+    left: 90%;
+  }
+  100% {
+    opacity: 0.13;
+    left: 100%;
+  }
+}
+
+/* Effet pulsé sous le logo */
 .pulse-anim {
   border-radius: 50%;
   background: transparent;
@@ -104,6 +137,56 @@ header h1 {
   font-size: 2.5em;
   font-weight: normal;
   margin: 0 0 0 10px;
+}
+
+h1 span {
+  animation: flash 10s infinite linear;
+}
+
+@keyframes flash {
+  0% {
+    color: #030303;
+    text-shadow: none;
+  }
+
+  90% {
+    color: transparent;
+    text-shadow: none;
+  }
+
+  100% {
+    color: transparent;
+    /* text-shadow: 0 0 8px #fff900, 0 0 15px #ff6c00; */
+    text-shadow: 0 0 8px #5a5a5a, 0 0 15px #242424;
+  }
+}
+
+h1 span:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+h1 span:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+h1 span:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+h1 span:nth-child(4) {
+  animation-delay: 0.8s;
+}
+
+h1 span:nth-child(5) {
+  animation-delay: 1s;
+}
+
+h1 span:nth-child(6) {
+  animation-delay: 1.2s;
+}
+
+h1 span:nth-child(7) {
+  animation-delay: 1.4s;
 }
 
 header h2 {
