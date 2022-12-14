@@ -77,7 +77,8 @@ if (isset($_GET['sens'])) {
 				</li>
 				<?php if ($_SESSION['USER_LEVEL'] >= 5): ?>
 					<li class="nav-item">
-						<a class="nav-link" href="<?php echo $rootUrl . 'tests.php'; ?>">Tests code</a>
+						<a class="nav-link" href="<?php echo $rootUrl .
+          'affichage_valeurs_tables.php'; ?>" target="_blank">Tests code</a>
 					</li>
 				<?php endif; ?>				
 			<?php else: ?>

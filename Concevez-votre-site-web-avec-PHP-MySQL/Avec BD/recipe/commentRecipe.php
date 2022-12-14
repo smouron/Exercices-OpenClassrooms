@@ -72,6 +72,14 @@ include_once './variables.php';
     $dataComments = getDataComments($dataId, $comments);
     $nbAvis = sizeof($dataComments);
     $note = calcNote($dataId, $comments);
+    // foreach ($rankings as $ranking) {
+    //     $note = '0';
+    //     if ($ranking['recipe_id'] == $dataRecipe) {
+    //         if (array_key_exists('rating', $ranking)) {
+    //             $note = $ranking['rating'];
+    //         }
+    //     }
+    // }
     $starNote = getStarNote($nbAvis, $note);
     $starNoteColor = getStarNoteColor($nbAvis, $note);
     $noteTotal = 0;
@@ -94,11 +102,10 @@ include_once './variables.php';
                
             <?php foreach ($comments as $comment) {
                 if ($comment['recipe_id'] === $dataRecipe['recipe_id']) {
-                    // Récupération de l'utilisateur
-                    $dataUser = getDataUser($comment['user_id'], $users);
-
                     // Si un pseudo éxiste on utilise le pseudo, si non on affiche l'adresse email
-                    if (!empty($dataUser)) {
+                    if (!empty($comment['user_id'])) {
+                        // Récupération de l'utilisateur
+                        $dataUser = getDataUser($comment['user_id'], $users);
                         if (isset($dataUser['pseudo'])) {
                             $userFrom = $dataUser['pseudo'];
                         } else {
@@ -120,11 +127,10 @@ include_once './variables.php';
                     // echo '</div>';
                     echo '<div class="me-sm-3">';
                     echo 'De : ' . $userFrom;
-                    echo '</div>';
-                    echo '<div class="me-sm-3">';
-                    echo 'Le : ' . $comment['created_at'];
-                    echo '</div>';
-                    echo '</div>';
+                    echo '</div><div class="me-sm-3">';
+                    // echo 'Le : ' . $comment['created_at'];
+                    echo 'Le : ' . $comment['comment_date'];
+                    echo '</div></div>';
                     echo '</article>';
                 }
             } ?>

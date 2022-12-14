@@ -46,18 +46,15 @@ if ($sens == 'DESC') {
 
 // On rentre la des commentaires et
 // les associations avec les autres tables pour faire les correspondances
-$sqlQuery = 'SELECT * FROM comments';
+$sqlQuery = 'SELECT *, DATE_FORMAT(created_at, "%d/%m/%Y à %H:%i") AS comment_date FROM comments 
+ORDER BY created_at DESC';
 
 $commentsStatement = $db->prepare($sqlQuery);
 $commentsStatement->execute();
 $comments = $commentsStatement->fetchAll();
 
-// tri par ordre de date décroissante
-$date = array_column($comments, 'created_at');
-array_multisort($date, SORT_DESC, SORT_REGULAR, $comments);
-
-// On rentre la des commentaires et
-// les associations avec les autres tables pour faire les correspondances
+// Test de jointures externes avec la table recette
+// 3 tables réunies
 $sqlQuery = 'SELECT u.full_name, c.comment, r.title 
     FROM users u
     JOIN comments c
@@ -69,16 +66,26 @@ $comments2Statement = $db->prepare($sqlQuery);
 $comments2Statement->execute();
 $comments2 = $comments2Statement->fetchAll();
 
-// On rentre la des commentaires et
-// les associations avec les autres tables pour faire les correspondances
-$sqlQuery = 'SELECT u.full_name, c.comment
-FROM users u
-INNER JOIN comments c
-ON u.user_id = c.user_id';
+// Test de jointures externes avec la table recette
+$sqlQuery = 'SELECT r.recipe_id, r.title, r.recipe, r.is_enabled, c.comment, c.ranking, u.full_name, u.email, u.pseudo, u.level
+    FROM recipes r
+    JOIN comments c
+        ON r.recipe_id = c.recipe_id
+    JOIN users u       
+        ON c.user_id  = u.user_id';
 
 $comments3Statement = $db->prepare($sqlQuery);
 $comments3Statement->execute();
 $comments3 = $comments3Statement->fetchAll();
+
+
+// Test de calcule par SQL
+$sqlQuery =
+    'SELECT ROUND(AVG(ranking),1) AS rating, recipe_id FROM comments GROUP BY recipe_id';
+
+$rankingsStatement = $db->prepare($sqlQuery);
+$rankingsStatement->execute();
+$rankings = $rankingsStatement->fetchAll();
 
 return $sens;
 ?>
