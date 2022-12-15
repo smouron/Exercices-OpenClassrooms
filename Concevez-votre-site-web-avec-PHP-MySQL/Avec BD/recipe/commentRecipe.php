@@ -91,6 +91,13 @@ include_once './variables.php';
 ?>
         <h1>Les avis</h1>
         <hr>
+        <div class="container-recipe">
+            <ul class="navbar-nav recipe-nav">                                             
+                <li>
+                    <a class="link-dark text-decoration-none" href="#"><i class="far fa-plus-square"></i></i> Ecrire un commentaire</a>
+                </li>
+            </ul>
+        </div> 
         <div class="recipe">
             <?php echo '<h3>' . $dataRecipe['title'] . '</h3>'; ?> 
             <div class="text-dark d-sm-flex flex-row justify-content-sm-start">
@@ -100,9 +107,12 @@ include_once './variables.php';
                 <div class="text-primary me-sm-3"><?php echo $nbAvis; ?> avis.</div>
             </div>
                
-            <?php foreach ($comments as $comment) {
-                if ($comment['recipe_id'] === $dataRecipe['recipe_id']) {
-                    // Si un pseudo éxiste on utilise le pseudo, si non on affiche l'adresse email
+            <?php foreach ($comments as $comment): ?>
+                <?php if (
+                    $comment['recipe_id'] === $dataRecipe['recipe_id']
+                ): ?>                
+                <!-- // Si un pseudo éxiste on utilise le pseudo, si non on affiche l'adresse email -->
+                    <?php
                     if (!empty($comment['user_id'])) {
                         // Récupération de l'utilisateur
                         $dataUser = getDataUser($comment['user_id'], $users);
@@ -118,42 +128,72 @@ include_once './variables.php';
                     $note = $comment['ranking'];
                     $starNote = getStarNote('1', $note);
                     $starNoteColor = getStarNoteColor('1', $note);
-                    echo '<article class="recipe border-secondary">';
-                    echo 'Avis : ' . $comment['comment'];
-                    echo '<div class="text-dark d-sm-flex flex-row justify-content-sm-start">';
-                    // echo '<div class="text-dark d-sm-flex flex-row justify-content-sm-end">';
-                    // echo '<div class="me-sm-3">';
-                    echo $starNoteColor;
-                    // echo '</div>';
-                    echo '<div class="me-sm-3">';
-                    echo 'De : ' . $userFrom;
-                    echo '</div><div class="me-sm-3">';
-                    // echo 'Le : ' . $comment['created_at'];
-                    echo 'Le : ' . $comment['comment_date'];
-                    echo '</div></div>';
-                    echo '</article>';
-                }
-            } ?>
+                    ?>
+                    <article class="recipe border-secondary">
+                        <?php echo 'Avis : ' . $comment['comment']; ?> 
+                        <!-- <div class="text-dark d-sm-flex flex-row justify-content-sm-start container-comment"> -->
+                        <div class="text-dark container-comment">
+                        <!-- // echo '<div class="text-dark d-sm-flex flex-row justify-content-sm-end">'; -->
+                        <!-- // echo '<div class="me-sm-3">'; -->
+                        <?php echo $starNoteColor; ?> 
+                        <!-- // echo '</div>'; -->
+                        <div class="me-sm-3">
+                            <?php echo 'De : ' . $userFrom; ?> 
+                        </div>
+                        <div class="me-sm-3">
+                            <!-- // echo 'Le : ' . $comment['created_at']; -->
+                            <?php echo 'Le : ' . $comment['comment_date']; ?> 
+                        </div>
+                        <div class="container-btn-comment">
+                            <ul class="navbar-nav recipe-nav"> 
+                                <?php if (
+                                    !empty($_SESSION['USER_EMAIL']) &&
+                                    $dataUser['email'] ===
+                                        $_SESSION['USER_EMAIL']
+                                ): ?>                       
+                                    <li>
+                                        <!-- link-warning / link-dark / link-danger / link-primaire  / link-secondaire -->
+                                        <a class="link-success text-decoration-none" href="#"><i class="fas fa-edit"></i> Modifier</a>
+                                    </li>
+                                <?php endif; ?>  
+                                <?php if (isset($_SESSION['USER_NAME'])): ?>
+                                    <?php if (
+                                        $_SESSION['USER_LEVEL'] >= 4 ||
+                                        $dataUser['email'] ===
+                                            $_SESSION['USER_EMAIL']
+                                    ): ?>
+                                        <li>
+                                            <a class="link-danger text-decoration-none" href="deleteCommentRecipe.php?recipe_id= <?php echo $dataRecipe[
+                                                'recipe_id'
+                                            ]; ?>&comment_id= <?php echo $comment[
+    'comment_id'
+]; ?>
+                                            <?php echo $addOn1; ?>
+                                            "><i class="fas fa-trash-alt"></i> Supprimer</a>
+                                        </li>
+                                    <?php endif; ?>  
+                                <?php endif; ?> 
+                            </ul> 
+                        </div>                 
+                    </div>
+                    </article>
+                
+                <?php endif; ?> 
+                <?php endforeach; ?>
 
         <br />
         </div>
+        <br>
+        <div class="container-recipe">
+            <ul class="navbar-nav recipe-nav">                                             
+                <li>
+                    <a class="link-dark text-decoration-none" href="#"><i class="far fa-plus-square"></i></i> Ecrire un commentaire</a>
+                </li>
+            </ul>
+        </div>  
         
         <hr>
     </div>
-    <div class="container-recipe">
-            <ul class="navbar-nav recipe-nav">                        
-                    <li>
-                        <!-- link-warning / link-dark / link-danger / link-primaire  / link-secondaire -->
-                        <a class="link-success text-decoration-none" href="#"><i class="fas fa-edit"></i> Modifier</a>
-                    </li>
-                    <li>
-                        <a class="link-danger text-decoration-none" href="#"><i class="fas fa-trash-alt"></i> Supprimer</a>
-                    </li>
-                    <li>
-                        <a class="link-dark text-decoration-none" href="#"><i class="far fa-plus-square"></i></i> Ecrire un commentaire</a>
-                </li>                          
-            </ul>
-        </div>  
     <!-- footer -->
     <?php include_once $rootPath . 'footer.php'; ?>
 </body>

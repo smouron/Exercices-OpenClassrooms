@@ -92,6 +92,28 @@ function getDataUser(string $user_id, array $users): array
 
 return;
 
+// Contrôle si le commentaire existe
+function getvalidIdComment(
+    string $recipe_id,
+    string $comment_id,
+    array $comments
+): string {
+    $validId = 0;
+
+    foreach ($comments as $comment) {
+        if (array_key_exists('comment_id', $comment)) {
+            if (
+                $comment['comment_id'] == $comment_id &&
+                $comment['recipe_id'] == $recipe_id
+            ) {
+                $validId = 1;
+            }
+        }
+    }
+
+    return $validId;
+}
+
 // Recupérer les données d'1 commentaire pour 2 recette
 function getDataComments(string $recipe_id, array $comments): array
 {

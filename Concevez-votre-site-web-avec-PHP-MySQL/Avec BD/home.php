@@ -133,25 +133,25 @@ include_once './variables.php';
                                     <span class="link-primary text-decoration-none"><?php echo $nbAvis; ?> avis</span></a>  
                         </li>
                         <?php if (isset($_SESSION['USER_NAME'])): ?>
-                        <?php if ($_SESSION['USER_LEVEL'] >= 2): ?>
-                            <li>
-                                <!-- link-warning / link-dark / link-danger / link-primaire  / link-secondaire -->
-                                <a class="link-success text-decoration-none" href="<?php echo $rootUrl .
-                                    'recipe/updateRecipe.php?id=' .
-                                    $recipe['recipe_id'] .
-                                    $addOn1; ?>"><i class="fas fa-edit"></i> Editer</a>
-                            </li>
-                        <?php endif; ?>  
-                        <?php if ($_SESSION['USER_LEVEL'] >= 4): ?>
-                            <li>
-                                <a class="link-danger text-decoration-none" href="<?php echo $rootUrl .
-                                    'recipe/deleteRecipe.php?id=' .
-                                    $recipe['recipe_id'] .
-                                    '&title=' .
-                                    $recipe['title'] .
-                                    $addOn1; ?>"><i class="fas fa-trash-alt"></i> Supprimer</a>
-                            </li>
-                        <?php endif; ?>                            
+                            <?php if ($_SESSION['USER_LEVEL'] >= 2): ?>
+                                <li>
+                                    <!-- link-warning / link-dark / link-danger / link-primaire  / link-secondaire -->
+                                    <a class="link-success text-decoration-none" href="<?php echo $rootUrl .
+                                        'recipe/updateRecipe.php?id=' .
+                                        $recipe['recipe_id'] .
+                                        $addOn1; ?>"><i class="fas fa-edit"></i> Editer</a>
+                                </li>
+                            <?php endif; ?>  
+                            <?php if ($_SESSION['USER_LEVEL'] >= 4): ?>
+                                <li>
+                                    <a class="link-danger text-decoration-none" href="<?php echo $rootUrl .
+                                        'recipe/deleteRecipe.php?id=' .
+                                        $recipe['recipe_id'] .
+                                        '&title=' .
+                                        $recipe['title'] .
+                                        $addOn1; ?>"><i class="fas fa-trash-alt"></i> Supprimer</a>
+                                </li>
+                            <?php endif; ?>                            
                         <?php endif; ?>  
                     </ul>
                     </div>  

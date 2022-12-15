@@ -12,7 +12,7 @@ include_once './variables.php';
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Site de Recettes - Suppresion d'une recette</title>
+    <title>Site de Recettes - Suppresion d'un commentaire d'une recette</title>
     <link
         href= "<?php echo $rootUrl . 'css/bootstrap.min.css'; ?>"
         rel="stylesheet"
@@ -49,43 +49,37 @@ include_once './variables.php';
         $sens = '';
     }
 
-    // Contrôle si on a bien reçu une donnée et qu'elle est bien numérique
-    if (isset($getData['id'])) {
-        $dataId = htmlspecialchars(strip_tags($getData['id']));
-        if (!is_numeric($dataId)) {
-            echo '<div class="alert alert-danger" role="alert">L\'identifiant de la recette est manquant ou invalide.</div>';
-            header('Refresh:2; url=' . $pageRetour);
-            exit();
-        }
-    }
-
-    if (!isset($getData['title'])) {
-        echo '<div class="alert alert-danger" role="alert">Le nom de de la recette est manquant ou invalide.</div>';
-        header('Refresh:2; url=' . $pageRetour);
-        exit();
+    // Contrôle si on a bien reçu une donnée
+    if (isset($getData['recipe_id']) || isset($getData['comment_id'])) {
+        $recipeId = htmlspecialchars(strip_tags($getData['recipe_id']));
+        $commentId = htmlspecialchars(strip_tags($getData['comment_id']));
     } else {
-        $dataTitle = htmlspecialchars(strip_tags($getData['title']));
+        echo '<div class="alert alert-danger" role="alert">Données 2 manquantes ou invalides.</div>';
+        // header('Refresh:2; url=' . $pageRetour);
+        exit();
     }
 
-    // Contrôle si la recette existe
-    if (!getvalidIdRecipe($dataId, $recipes)) {
-        echo '<div class="alert alert-danger" role="alert">Cette recette n\'existe pas ou n\'a pas été trouvée.</div>';
+    // Contrôle si le commentiare existe
+    // et qu'il est bien associé à la recette indiquée
+    if (!getvalidIdComment($recipeId, $commentId, $comments)) {
+        echo '<div class="alert alert-danger" role="alert">Cet avis n\'existe pas ou n\'a pas été trouvée.</div>';
         header('Refresh:2; url=' . $pageRetour);
-        // header('Refresh:2; url=' . $_SERVER['HTTP_REFERER']);
         exit();
     }
     ?>
-
-        <h1>Suppression d'une recette</h1>
+    
+    
+        <h1>Suppression d'un avis</h1>
         <hr>     
-        <h3>Recette "<?php echo $getData['title']; ?>"</h3>
+        
         <p><em>ATTENTION !!!</em> Toute suppression est définitive.</p>
             <form method="POST" action="<?php echo $rootUrl .
-                'recipe/submit_deleteRecipe.php' .
-                $addOn2; ?>">  
+                'recipe/submit_deleteCommentRecipe.php?recipe_id=' .
+                $recipeId .
+                $addOn1; ?>">  
                 <div class="mb-3 visually-hidden">
                     <label for="id" class="form-label">Identifiant de la recette</label>
-                    <input type="hidden" class="form-control" id="id" name="id" value="<?php echo $dataId; ?>">
+                    <input type="hidden" class="form-control" id="comment_id" name="comment_id" value="<?php echo $commentId; ?>">
                 </div>              
                 <button type="submit" class="btn btn-danger">Confirmer</button>
                 <input type="button" onclick="window.location.href='<?php echo $pageRetour; ?>'" class="btn btn-primary" value="Annuler" >
