@@ -53,11 +53,10 @@ include_once './variables.php';
     // Contrôle si on a bien reçu une donnée et qu'elle est bien numérique
     if (isset($getData['id'])) {
         $dataId = htmlspecialchars(strip_tags($getData['id']));
-        if (!is_numeric($dataId)) {
-            echo '<div class="alert alert-danger" role="alert">L\'identifiant de la recette est manquant ou invalide.</div>';
-            header('Refresh:2; url=' . $pageRetour);
-            exit();
-        }
+    } else {
+        echo '<div class="alert alert-danger" role="alert">L\'identifiant de la recette est manquant ou invalide.</div>';
+        header('Refresh:2; url=' . $pageRetour);
+        exit();
     }
 
     // Contrôle si la recette existe
@@ -67,19 +66,16 @@ include_once './variables.php';
         exit();
     }
 
-    // Récupération des données de la recette
+    // Filtres anti balise html
+    $dataId = strip_tags($dataId);
+    $dataId = htmlspecialchars($dataId);
+
+    // Récupération des information de la recette
+    // et des commentaires pour cette recette
     $dataRecipe = getDataRecipe($dataId, $recipes);
     $dataComments = getDataComments($dataId, $comments);
     $nbAvis = sizeof($dataComments);
     $note = calcNote($dataId, $comments);
-    // foreach ($rankings as $ranking) {
-    //     $note = '0';
-    //     if ($ranking['recipe_id'] == $dataRecipe) {
-    //         if (array_key_exists('rating', $ranking)) {
-    //             $note = $ranking['rating'];
-    //         }
-    //     }
-    // }
     $starNote = getStarNote($nbAvis, $note);
     $starNoteColor = getStarNoteColor($nbAvis, $note);
     $noteTotal = 0;
@@ -94,7 +90,10 @@ include_once './variables.php';
         <div class="container-recipe">
             <ul class="navbar-nav recipe-nav">                                             
                 <li>
-                    <a class="link-dark text-decoration-none" href="#"><i class="far fa-plus-square"></i></i> Ecrire un commentaire</a>
+                <a class="link-dark text-decoration-none" href="addCommentRecipe.php?recipe_id= <?php echo $dataRecipe[
+                    'recipe_id'
+                ] .
+                    $addOn1; ?>"><i class="far fa-plus-square"></i> Ecrire un commentaire</a>
                 </li>
             </ul>
         </div> 
@@ -111,7 +110,7 @@ include_once './variables.php';
                 <?php if (
                     $comment['recipe_id'] === $dataRecipe['recipe_id']
                 ): ?>                
-                <!-- // Si un pseudo éxiste on utilise le pseudo, si non on affiche l'adresse email -->
+                <!-- // Si un pseudo existe on utilise le pseudo, si non on affiche l'adresse email -->
                     <?php
                     if (!empty($comment['user_id'])) {
                         // Récupération de l'utilisateur
@@ -123,6 +122,7 @@ include_once './variables.php';
                         }
                     } else {
                         $userFrom = 'Utilisateur inconnu';
+                        $dataUser = [];
                     }
                     $nbAvis = 1;
                     $note = $comment['ranking'];
@@ -138,41 +138,47 @@ include_once './variables.php';
                         <?php echo $starNoteColor; ?> 
                         <!-- // echo '</div>'; -->
                         <div class="me-sm-3">
-                            <?php echo 'De : ' . $userFrom; ?> 
-                        </div>
-                        <div class="me-sm-3">
                             <!-- // echo 'Le : ' . $comment['created_at']; -->
                             <?php echo 'Le : ' . $comment['comment_date']; ?> 
                         </div>
+                        <div class="me-sm-3">
+                            <?php echo 'De : ' . $userFrom; ?> 
+                        </div>
                         <div class="container-btn-comment">
                             <ul class="navbar-nav recipe-nav"> 
-                                <?php if (
+                                <?php
+                                if (
                                     !empty($_SESSION['USER_EMAIL']) &&
-                                    $dataUser['email'] ===
-                                        $_SESSION['USER_EMAIL']
-                                ): ?>                       
-                                    <li>
-                                        <!-- link-warning / link-dark / link-danger / link-primaire  / link-secondaire -->
-                                        <a class="link-success text-decoration-none" href="#"><i class="fas fa-edit"></i> Modifier</a>
-                                    </li>
-                                <?php endif; ?>  
-                                <?php if (isset($_SESSION['USER_NAME'])): ?>
-                                    <?php if (
-                                        $_SESSION['USER_LEVEL'] >= 4 ||
+                                    !empty($dataUser)
+                                ) {
+                                    if (
                                         $dataUser['email'] ===
-                                            $_SESSION['USER_EMAIL']
-                                    ): ?>
+                                        $_SESSION['USER_EMAIL']
+                                    ) {
+                                        echo '<li>';
+                                        echo '<a class="link-success text-decoration-none" href="updateCommentRecipe.php?recipe_id=' .
+                                            $dataRecipe['recipe_id'] .
+                                            '&comment_id=' .
+                                            $comment['comment_id'] .
+                                            $addOn1 .
+                                            '"';
+                                        echo '<i class="fas fa-edit"></i> Modifier</a>';
+                                        echo '</li>';
+                                    }
+                                }
+                                if (isset($_SESSION['USER_NAME'])): ?>
+                                    <?php if ($_SESSION['USER_LEVEL'] >= 2): ?>
                                         <li>
-                                            <a class="link-danger text-decoration-none" href="deleteCommentRecipe.php?recipe_id= <?php echo $dataRecipe[
+                                            <a class="link-danger text-decoration-none" href="deleteCommentRecipe.php?recipe_id=<?php echo $dataRecipe[
                                                 'recipe_id'
                                             ]; ?>&comment_id= <?php echo $comment[
     'comment_id'
-]; ?>
-                                            <?php echo $addOn1; ?>
-                                            "><i class="fas fa-trash-alt"></i> Supprimer</a>
+] . $addOn1; ?>">
+                                            <i class="fas fa-trash-alt"></i> Supprimer</a>
                                         </li>
                                     <?php endif; ?>  
-                                <?php endif; ?> 
+                                <?php endif;
+                                ?> 
                             </ul> 
                         </div>                 
                     </div>
@@ -187,7 +193,10 @@ include_once './variables.php';
         <div class="container-recipe">
             <ul class="navbar-nav recipe-nav">                                             
                 <li>
-                    <a class="link-dark text-decoration-none" href="#"><i class="far fa-plus-square"></i></i> Ecrire un commentaire</a>
+                    <a class="link-dark text-decoration-none" href="addCommentRecipe.php?recipe_id= <?php echo $dataRecipe[
+                        'recipe_id'
+                    ] .
+                        $addOn1; ?>"><i class="far fa-plus-square"></i> Ecrire un commentaire</a>
                 </li>
             </ul>
         </div>  

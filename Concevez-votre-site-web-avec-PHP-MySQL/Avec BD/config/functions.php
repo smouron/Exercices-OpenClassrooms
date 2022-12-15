@@ -92,6 +92,19 @@ function getDataUser(string $user_id, array $users): array
 
 return;
 
+// Recupérer le n° d'1 utilisateur
+function getDataUserEmail(string $email, array $users): array
+{
+    $dataUser = [];
+    foreach ($users as $user) {
+        if ($user['email'] == $email) {
+            $dataUser = $user;
+        }
+    }
+
+    return $dataUser;
+}
+
 // Contrôle si le commentaire existe
 function getvalidIdComment(
     string $recipe_id,
@@ -114,7 +127,7 @@ function getvalidIdComment(
     return $validId;
 }
 
-// Recupérer les données d'1 commentaire pour 2 recette
+// Recupérer les données des commentaire pour la recette
 function getDataComments(string $recipe_id, array $comments): array
 {
     $count = 0;
@@ -124,6 +137,28 @@ function getDataComments(string $recipe_id, array $comments): array
             if ($comment['recipe_id'] == $recipe_id) {
                 $dataComments[$count] = $comment;
                 $count++;
+            }
+        }
+    }
+
+    return $dataComments;
+}
+
+// Recupérer les données de'1 seul commentaire pour la recette
+function getDataComment(
+    string $recipe_id,
+    string $comment_id,
+    array $comments
+): array {
+    $count = 0;
+    $dataComments = [];
+    foreach ($comments as $comment) {
+        if (array_key_exists('comment_id', $comment)) {
+            if (
+                $comment['comment_id'] == $comment_id &&
+                $comment['recipe_id'] == $recipe_id
+            ) {
+                $dataComments = $comment;
             }
         }
     }

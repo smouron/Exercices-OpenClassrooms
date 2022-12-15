@@ -57,3 +57,16 @@ label {
   outline: 0;
   box-shadow: 0 0 0 0.25rem rgba(115, 123, 134, 0.25);
 }
+
+.container-comment {
+  display: grid;
+  grid-template-columns: 10% 20% 30% 40%;
+}
+
+.container-btn-comment {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-content: center;
+  text-align: right;
+}

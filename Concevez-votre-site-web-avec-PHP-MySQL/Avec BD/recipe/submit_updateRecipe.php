@@ -13,7 +13,7 @@ include_once './variables.php';
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Site de recettes - Ajout de la recette en base de données</title>
+    <title>Site de recettes - Mie à jour de la recette en base de données</title>
     <link
         href= "<?php echo $rootUrl . 'css/bootstrap.min.css'; ?>"
         rel="stylesheet"
@@ -59,29 +59,29 @@ include_once './variables.php';
   // Contrôle si on a bien reçu une donnée et qu'elle est bien numérique
   if (!isset($postData) || !is_numeric($postData['recipe_id'])) {
       echo '<div class="alert alert-danger" role="alert">L\'identifiant de la recette est manquant ou invalide.</div>';
-      header('Refresh:3; url=' . $pageRetour);
+      header('Refresh:2; url=' . $pageRetour);
       exit();
   }
 
   // Contrôle si la recette existe
   if (!getvalidIdRecipe($postData['recipe_id'], $recipes)) {
       echo '<div class="alert alert-danger" role="alert">Cette recette n\'existe pas ou n\'a pas été trouvée.</div>';
-      header('Refresh:3; url=' . $pageRetour);
+      header('Refresh:2; url=' . $pageRetour);
       exit();
   }
 
   //   Contrôle si des données ont bien été renseignées
   if ($postData['title'] == '' && $postData['recipe'] == '') {
       echo '<div class="alert alert-danger" role="alert">Les données sont incomplètes. On ne peut pas enregister cette recette.</div>';
-      header('Refresh:3; url=' . $pageRetour);
+      header('Refresh:2; url=' . $pageRetour);
       rexit();
   } elseif ($postData['title'] == '') {
       echo '<div class="alert alert-danger" role="alert">Le titre est manquant. On ne peut pas enregister cette recette.</div>';
-      header('Refresh:3; url=' . $pageRetour);
+      header('Refresh:2; url=' . $pageRetour);
       exit();
   } elseif ($postData['recipe'] == '') {
       echo '<div class="alert alert-danger" role="alert">Il n\'y a pas de recette. On ne peut pas enregister cette recette.</div>';
-      header('Refresh:3; url=' . $pageRetour);
+      header('Refresh:2; url=' . $pageRetour);
       exit();
   }
 

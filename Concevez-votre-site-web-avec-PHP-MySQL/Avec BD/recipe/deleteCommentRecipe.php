@@ -54,12 +54,19 @@ include_once './variables.php';
         $recipeId = htmlspecialchars(strip_tags($getData['recipe_id']));
         $commentId = htmlspecialchars(strip_tags($getData['comment_id']));
     } else {
-        echo '<div class="alert alert-danger" role="alert">Données 2 manquantes ou invalides.</div>';
-        // header('Refresh:2; url=' . $pageRetour);
+        echo '<div class="alert alert-danger" role="alert">Données manquantes ou invalides.</div>';
+        header('Refresh:2; url=' . $pageRetour);
         exit();
     }
 
-    // Contrôle si le commentiare existe
+    // Contrôle si on a bien reçu une donnée
+    if (empty($recipeId) || empty($commentId)) {
+        echo '<div class="alert alert-danger" role="alert">Données manquantes ou invalides.</div>';
+        header('Refresh:2; url=' . $pageRetour);
+        exit();
+    }
+
+    // Contrôle si le commentaire existe
     // et qu'il est bien associé à la recette indiquée
     if (!getvalidIdComment($recipeId, $commentId, $comments)) {
         echo '<div class="alert alert-danger" role="alert">Cet avis n\'existe pas ou n\'a pas été trouvée.</div>';
