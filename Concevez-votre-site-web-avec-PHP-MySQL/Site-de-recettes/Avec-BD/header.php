@@ -11,12 +11,19 @@ $rootUrl =
 $rootPath = $_SERVER['DOCUMENT_ROOT'];
 
 // $rootAdd : Chemin sur le serveur
-$rootAdd = 'OpenClassRooms/Avec BD/';
+$rootAdd = 'OpenClassRooms/Site-de-recettes/Avec-BD/';
 $rootUrl = $rootUrl . $rootAdd;
 $rootPath = $rootPath . '/' . $rootAdd;
 
 // Chargements de ces pages avec le header
-include_once $rootPath . 'config/connect.php';
+if (
+    $_SERVER['HTTP_HOST'] == 'localhost' ||
+    $_SERVER['HTTP_HOST'] == '127.0.0.1'
+) {
+    include_once $rootPath . 'config/connect_local.php';
+} else {
+    include_once $rootPath . 'config/connect_infomaniak.php';
+}
 include_once $rootPath . 'config/datas.php';
 include_once $rootPath . 'config/functions.php';
 
