@@ -16,9 +16,9 @@ $rootUrl = $rootUrl . $rootAdd;
 $rootPath = $rootPath . '/' . $rootAdd;
 
 // Chargements de ces pages avec le header
-include_once $rootPath . 'config\connect.php';
-include_once $rootPath . 'config\datas.php';
-include_once $rootPath . 'config\functions.php';
+include_once $rootPath . 'config/connect.php';
+include_once $rootPath . 'config/datas.php';
+include_once $rootPath . 'config/functions.php';
 
 $addOn1 = '';
 $addOn2 = '';

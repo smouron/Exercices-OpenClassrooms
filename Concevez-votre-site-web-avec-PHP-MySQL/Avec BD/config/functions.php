@@ -144,7 +144,7 @@ function getDataComments(string $recipe_id, array $comments): array
     return $dataComments;
 }
 
-// Recupérer les données de'1 seul commentaire pour la recette
+// Recupérer les données d'1 seul commentaire pour la recette
 function getDataComment(
     string $recipe_id,
     string $comment_id,

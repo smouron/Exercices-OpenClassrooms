@@ -1,6 +1,6 @@
 <?php
 header('Content-type: text/html; charset=UTF-8');
-const MYSQL_HOST = 'localhost';
+const MYSQL_HOST = 'fgaa.myd.infomaniak.com';
 const MYSQL_PORT = 3306;
 // const MYSQL_NAME = 'partage_de_recettes';
 // const MYSQL_USER = 'root';

@@ -3,11 +3,18 @@
 
 $users = [
     [
+        'full_name' => 'Stéphane MOURON',
+        'email' => 'stephane.mouron@free.fr',
+        'age' => 51,
+        'pseudo' => 'exca',
+        'password' => 'steph',
+    ],
+    [
         'full_name' => 'Laurène Castor',
         'email' => 'laurene.castor@exemple.com',
         'age' => 28,
         'pseudo' => 'lcastor',
-        'password' => '1234',
+        'password' => 'laCasto28',
     ],
     [
         'full_name' => 'Mickaël Andrieu',
@@ -16,14 +23,14 @@ $users = [
         'email' => 'mickael.andrieu@exemple.com',
         'age' => 34,
         'pseudo' => 'micka',
-        'password' => '4321',
+        'password' => 'S3cr3t',
     ],
     [
         'full_name' => 'Mathieu Nebra',
         'email' => 'mathieu.nebra@exemple.com',
         'age' => 34,
         'pseudo' => 'mathnebra',
-        'password' => 'Mathieu',
+        'password' => 'MiamMiam',
     ],
 ];
 
