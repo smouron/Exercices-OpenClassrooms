@@ -13,6 +13,7 @@ Mais également des essais effectués suite à certains cours.
 
     - Reproduction du cour sans ajout personnel particulier
     - Ajout diférents effets CSS
+    - Site visibile : https://www.sanoecreation.fr/OpenClassRooms/Carnet-de-voyage-de-Totor/
 
 ### Concevez votre site web avec PHP et MySQL - Fait en décembre 2022
 
@@ -36,5 +37,5 @@ Mais également des essais effectués suite à certains cours.
 
 ### Copie OpenClassRooms - Fait en novembre 2022
 
-Tentative de faire une copie du site d'OpenClassRooms (page Cours en libre accès).
-Uniquement la partie visible (HTML + CSS).
+    - Tentative de faire une copie du site d'OpenClassRooms (page Cours en libre accès). Uniquement la partie visible (HTML + CSS).
+    - Site visibile : https://www.sanoecreation.fr/OpenClassRooms/Copie_OpenClassRooms/
