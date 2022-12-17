@@ -80,7 +80,7 @@ include_once './variables.php';
         <?php
         $message = 'Aucun avis n\' a été détecté pour cette recette';
         $count = 0;
-        // Contrôle s'il y a des commentaires sur cett e recette
+        // Contrôle s'il y a des commentaires sur cette recette
         foreach ($comments as $comment) {
             if ($comment['recipe_id'] === $dataId) {
                 $count++;

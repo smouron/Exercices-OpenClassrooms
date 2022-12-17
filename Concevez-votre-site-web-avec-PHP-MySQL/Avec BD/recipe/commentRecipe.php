@@ -90,7 +90,7 @@ include_once './variables.php';
         <div class="container-recipe">
             <ul class="navbar-nav recipe-nav">                                             
                 <li>
-                <a class="link-dark text-decoration-none" href="addCommentRecipe.php?recipe_id= <?php echo $dataRecipe[
+                <a class="link-dark text-decoration-none" href="addCommentRecipe.php?recipe_id=<?php echo $dataRecipe[
                     'recipe_id'
                 ] .
                     $addOn1; ?>"><i class="far fa-plus-square"></i> Ecrire un commentaire</a>
@@ -108,7 +108,7 @@ include_once './variables.php';
                
             <?php foreach ($comments as $comment): ?>
                 <?php if (
-                    $comment['recipe_id'] === $dataRecipe['recipe_id']
+                    $comment['recipe_id'] == $dataRecipe['recipe_id']
                 ): ?>                
                 <!-- // Si un pseudo existe on utilise le pseudo, si non on affiche l'adresse email -->
                     <?php
@@ -171,7 +171,7 @@ include_once './variables.php';
                                         <li>
                                             <a class="link-danger text-decoration-none" href="deleteCommentRecipe.php?recipe_id=<?php echo $dataRecipe[
                                                 'recipe_id'
-                                            ]; ?>&comment_id= <?php echo $comment[
+                                            ]; ?>&comment_id=<?php echo $comment[
     'comment_id'
 ] . $addOn1; ?>">
                                             <i class="fas fa-trash-alt"></i> Supprimer</a>
@@ -193,7 +193,7 @@ include_once './variables.php';
         <div class="container-recipe">
             <ul class="navbar-nav recipe-nav">                                             
                 <li>
-                    <a class="link-dark text-decoration-none" href="addCommentRecipe.php?recipe_id= <?php echo $dataRecipe[
+                    <a class="link-dark text-decoration-none" href="addCommentRecipe.php?recipe_id=<?php echo $dataRecipe[
                         'recipe_id'
                     ] .
                         $addOn1; ?>"><i class="far fa-plus-square"></i> Ecrire un commentaire</a>

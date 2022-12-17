@@ -81,7 +81,7 @@ include_once './variables.php';
   $recipe_id = htmlspecialchars($recipe_id);
 
   // Contrôle si un utilisateur est connecté
-  // pour son identifiant
+  // pour récupérer son identifiant
   $author = '';
   if (isset($_SESSION['USER_NAME'])) {
       $authorEmail = $_SESSION['USER_EMAIL'];

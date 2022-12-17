@@ -73,6 +73,40 @@ include_once './variables.php';
     // Recupération du nom de la recette
     $dataRecipe = getDataRecipe($recipe_id, $recipes);
     $titleRecipe = $dataRecipe['title'];
+
+    // Contrôle si un utilisateur est connecté
+    // pour récupérer son identifiant
+    $author = '';
+    if (isset($_SESSION['USER_NAME'])) {
+        $authorEmail = $_SESSION['USER_EMAIL'];
+        $dataUser = getDataUserEmail($authorEmail, $users);
+        $authorId = $dataUser['user_id'];
+
+        // Si un utilisateur, contrôle si un avis a déjà été écrit
+        // si c'est la cas, son avis est affiché pour être modifié
+        foreach ($comments as $comment) {
+            // echo ' <br>';
+            // echo "comment['recipe_id'] : " . $comment['recipe_id'] . '<br>';
+            // echo 'recipe_id : ' . $recipe_id . '<br>';
+            // echo "comment['user_id'] : " . $comment['user_id'] . '<br>';
+            // echo 'authorId : ' . $authorId . '<br>';
+            if (
+                $comment['recipe_id'] == $recipe_id &&
+                $comment['user_id'] == $authorId
+            ) {
+                echo '<div class="alert alert-danger" role="alert">Vous avez déjà écrit un avis. <br>Cet avis va être affiché pour pouvoir être modifié.</div>';
+                $pageNext =
+                    $rootUrl .
+                    'recipe/updateCommentRecipe.php?comment_id=' .
+                    $comment['comment_id'] .
+                    '&recipe_id=' .
+                    $comment['recipe_id'] .
+                    $addOn1;
+                header('Refresh:2; url=' . $pageNext);
+                exit();
+            }
+        }
+    }
     ?>
 
         <h1>Recette : <?php echo $titleRecipe; ?></h1>
