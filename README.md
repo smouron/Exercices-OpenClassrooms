@@ -18,14 +18,18 @@ Mais également des essais effectués suite à certains cours.
 
 #### 1ère partie : réalisation du site sans base de données
 
+    - Site visibile : https://www.sanoecreation.fr/OpenClassRooms/Site-de-recettes/Sans-BD/home.php
+
 #### 2ème et 3ème partie : avec d'une base de données MySQL
+
+    - Site visibile : https://www.sanoecreation.fr/OpenClassRooms/Site-de-recettes/Avec-BD/home.php
 
 #### Ajout de fonctionnalité par rapport à ce qui était demandé :
 
-    - une tri filtre acsendant / descendant qui reste actif même quand on change de page
-    - la gestion des recettes qui ne sont pas affichées
-    - la gestion d"un niveau d'autorisation avec les utilisateurs (avec une notion d'amin.)
-    - ajout d'affichage de commentaires
+    - une tri filtre acsendant / descendant qui reste actif même quand on change de page.
+    - la gestion des recettes qui ne sont pas affichées.
+    - la gestion d'un niveau d'autorisation avec les utilisateurs (avec une notion d'amin.).
+    - ajout d'affichage de commentaires et de leur gestion (supression, ajout et modification).
     - ajout de l'affichage de notes avec des étoiles.
 
 ## Exercices_Personnels
