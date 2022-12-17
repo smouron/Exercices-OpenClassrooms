@@ -76,13 +76,36 @@ include_once './variables.php';
 	<div class="card">
 		<div class="card-body">
 		<h4>Recette supprimée avec succès !</h4>
-        <p>Cela va retourner automatiquement à la page d'accueil.</p>  		
-	</div>
+        
+        <?php
+        $message = 'Aucun avis n\' a été détecté pour cette recette';
+        $count = 0;
+        // Contrôle s'il y a des commentaires sur cett e recette
+        foreach ($comments as $comment) {
+            if ($comment['recipe_id'] === $dataId) {
+                $count++;
+                $commentId = $comment['comment_id'];
+                $message =
+                    'Il y avait ' . $count . ' avis pour cette recette. ';
+                $sqlQuery = 'DELETE FROM comments WHERE comment_id = :id';
+                $deleteCommentsStatement = $db->prepare($sqlQuery);
+                $deleteCommentsStatement->execute(['id' => $commentId]);
+            }
+        }
+
+        if ($count == 1) {
+            $message = $message . 'Il a également été suprimé.';
+        } elseif ($count > 1) {
+            $message = $message . 'Ils ont également été suprimé.';
+        }
+        echo '<p>' . $message . '</p>';
+        ?>
+        <p>Cela va retourner automatiquement à la page d'accueil.</p> 
+    </div>
 	
     <!-- footer -->
     <?php
     include_once $rootPath . 'footer.php';
-
     // redirection var la page home
     // header('Location: ./../home.php');
     header('Refresh:2; url=' . $pageRetour);

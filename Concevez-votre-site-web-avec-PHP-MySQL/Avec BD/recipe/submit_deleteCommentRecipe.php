@@ -58,7 +58,7 @@ include_once './variables.php';
          $commentId = htmlspecialchars(strip_tags($postData['comment_id']));
      } else {
          echo '<div class="alert alert-danger" role="alert">Données manquantes ou invalides.</div>';
-         // header('Refresh:2; url=' . $pageRetour);
+         header('Refresh:2; url=' . $pageRetour);
          exit();
      }
 
