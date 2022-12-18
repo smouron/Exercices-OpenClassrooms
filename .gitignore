@@ -1,3 +1,4 @@
-/*Copie.*
-/*old.*
-/*.old
+*Copie.*
+*old.*
+*.old
+/config/connect*.*
