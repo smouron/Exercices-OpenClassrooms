@@ -1,4 +1,9 @@
 *Copie.*
-*old.*
+_old.*
 *.old
-/config/connect*.*
+*.sql
+/sql
+connect.*
+connect_infomaniak.*
+connect_local.*
+*.txt
