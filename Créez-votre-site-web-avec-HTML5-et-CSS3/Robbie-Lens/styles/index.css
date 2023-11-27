@@ -1,0 +1,155 @@
+.acceuil-introduction {
+  max-width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.acceuil-introduction div {
+  width: 370px;
+  margin: 0 140px;
+}
+
+.acceuil-introduction h1,
+.acceuil-introduction p {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+#photo_robbie {
+  min-width: 200px;
+  width: 100%;
+}
+
+.accueil-photos {
+  background-color: white;
+  text-align: center;
+  padding: 80px;
+}
+
+.accueil-photos img {
+	cursor: zoom-in;
+    transition: 0.8s;	
+}
+
+.accueil-photos img:active {
+	transform: scale(1.4)
+}
+
+.accueil-photos h2 {
+  color: #242424;
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.accueil-photos div {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.accueil-photos img {
+  width: 100%;
+}
+
+.a-propos-main {
+  width: 50%;
+  margin: auto;
+}
+
+.acceuil-contact {
+  margin: 40px;
+}
+
+.acceuil-contact h2 {
+  text-align: center;
+  color: #a5b4fc;
+  margin-bottom: 50px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  /* width: 40%; */
+  margin: auto;
+  color: white;
+}
+
+.form-nom-email {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.form-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+label {
+  margin-bottom: 10px;
+}
+
+input,
+textarea {
+  padding: 15px;
+  border-radius: 3px;
+  border: none;
+}
+
+input[type='text'],
+input[type='email'] {
+  width: 250px;
+  height: 20px;
+}
+
+textarea {
+  width: 550px;
+  height: 150px;
+}
+
+input[type='submit'] {
+  width: 200px;
+  margin: auto;
+  margin-top: 30px;
+}
+
+@media screen and (max-width: 800px) {
+  .acceuil-introduction {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+}
+
+  .accueil-photos div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 15px;
+  }
+  
+  .acceuil-introduction div {
+    width: 100%;
+	text-align:center;
+    margin: 20px 100px;
+  }
+  
+  .acceuil-introduction h1 {
+	text-align:center;
+  }
+
+  .form-nom-email {
+    display: flex;
+    flex-direction: column;
+  }
+
+  input[type='text'],
+  input[type='email'] {
+    width: 550px;
+  }
+}

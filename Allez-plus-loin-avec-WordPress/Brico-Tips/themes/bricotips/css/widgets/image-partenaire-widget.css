@@ -1,0 +1,36 @@
+/* CSS POUR LE WIDGET .image-partenaire */
+.partenaire-nom-widget {
+  height: 50px;
+  display: flex;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  /* text-transform: uppercase; */
+  text-decoration: none;
+}
+
+.partenaire-nom-widget:before {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: black;
+  opacity: 0.5;
+}
+
+.partenaire-nom-widget .partenaire-nom {
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  padding: 10px 20px;
+  text-align: center;
+  color: white;
+}

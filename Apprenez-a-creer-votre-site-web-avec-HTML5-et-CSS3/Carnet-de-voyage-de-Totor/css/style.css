@@ -1,46 +1,13 @@
 /* Définition des polices personnalisées */
 
-@font-face {
-  font-family: 'BallparkWeiner';
-  src: url('polices/ballpark.eot');
-  src: url('polices/ballpark.eot?#iefix') format('embedded-opentype'),
-    url('polices/ballpark.woff') format('woff'),
-    url('polices/ballpark.ttf') format('truetype'),
-    url('polices/ballpark.svg#BallparkWeiner') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Dayrom';
-  src: url('polices/dayrom.eot');
-  src: url('polices/dayrom.eot?#iefix') format('embedded-opentype'),
-    url('polices/dayrom.woff') format('woff'),
-    url('polices/dayrom.ttf') format('truetype'),
-    url('polices/dayrom.svg#Dayrom') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'AlexBrush-Regular';
-  src: url('fonts/AlexBrush-Regular.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: '2Dumb';
-  src: url('2Dumb.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 
 /* Eléments principaux de la page */
 
 body {
   background: url('../images/fond_jaune.png');
-  font-family: 'Trebuchet MS', Arial, sans-serif;
+  font-family: 'Montserrat', sans-serif;
   color: #0c0c0c;
 }
 
@@ -51,8 +18,8 @@ body {
 
 section h1,
 footer h1,
-nav a {
-  font-family: Dayrom, serif;
+nav a {  
+  font-family: 'Karla', sans-serif;
   font-weight: normal;
   text-transform: uppercase;
 }
@@ -63,7 +30,7 @@ header {
   background: url('../images/separateur.png') repeat-x bottom;
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
   position: relative;
 }
 
@@ -119,12 +86,13 @@ header::after {
 #titre_principal {
   display: flex;
   flex-direction: column;
+  width: 60%;
 }
 
 #logo_principal {
   display: flex;
   flex-direction: row;
-  align-items: baseline;
+  align-items: center;
 }
 
 #logo_principal img {
@@ -132,15 +100,16 @@ header::after {
   height: 70px;
 }
 
-header h1 {
-  font-family: 'BallparkWeiner', serif;
-  font-size: 2.5em;
+h1 {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 2rem;
+  line-height: 2.2rem;
   font-weight: normal;
   margin: 0 0 0 10px;
 }
 
 h1 span {
-  animation: flash 10s infinite linear;
+  animation: flash 10s infinite linear 2s;
 }
 
 @keyframes flash {
@@ -149,48 +118,86 @@ h1 span {
     text-shadow: none;
   }
 
-  90% {
+  60% {
     color: transparent;
     text-shadow: none;
   }
 
   100% {
     color: transparent;
-    /* text-shadow: 0 0 8px #fff900, 0 0 15px #ff6c00; */
-    text-shadow: 0 0 8px #5a5a5a, 0 0 15px #242424;
+    text-shadow: 0 0 8px #fff900, 0 0 15px #ff6c00;
+    /* text-shadow: 0 0 8px #5a5a5a, 0 0 15px #242424; */
   }
 }
 
-h1 span:nth-child(1) {
+h1 span:nth-child(1),
+h1 span:nth-child(26) {
+  animation-delay: 0.1s;
+}
+
+h1 span:nth-child(2),
+h1 span:nth-child(25) {
   animation-delay: 0.2s;
 }
 
-h1 span:nth-child(2) {
+h1 span:nth-child(3),
+h1 span:nth-child(24) {
+  animation-delay: 0.3s;
+}
+
+h1 span:nth-child(4),
+h1 span:nth-child(23) {
   animation-delay: 0.4s;
 }
 
-h1 span:nth-child(3) {
+h1 span:nth-child(5),
+h1 span:nth-child(22) {
+  animation-delay: 0.5s;
+}
+
+h1 span:nth-child(6),
+h1 span:nth-child(21) {
   animation-delay: 0.6s;
 }
 
-h1 span:nth-child(4) {
+h1 span:nth-child(7),
+h1 span:nth-child(20) {
+  animation-delay: 0.7s;
+}
+
+h1 span:nth-child(8),
+h1 span:nth-child(19) {
   animation-delay: 0.8s;
 }
 
-h1 span:nth-child(5) {
+h1 span:nth-child(9),
+h1 span:nth-child(18) {
+  animation-delay: 0.9s;
+}
+
+h1 span:nth-child(10),
+h1 span:nth-child(17) {
   animation-delay: 1s;
 }
 
-h1 span:nth-child(6) {
+h1 span:nth-child(11),
+h1 span:nth-child(16) {
+  animation-delay: 1.1s;
+}
+
+h1 span:nth-child(12),
+h1 span:nth-child(15) {
   animation-delay: 1.2s;
 }
 
-h1 span:nth-child(7) {
-  animation-delay: 1.4s;
+h1 span:nth-child(13),
+h1 span:nth-child(14) {
+  animation-delay: 1.3s;
 }
 
-header h2 {
-  font-family: Dayrom, serif;
+
+header h2 {  
+  font-family: 'Karla', sans-serif;
   font-size: 1.1em;
   margin-top: 0px;
   font-weight: normal;
@@ -201,6 +208,7 @@ header h2 {
 nav ul {
   list-style-type: none;
   display: flex;
+  padding-left: 10px;
 }
 
 nav li {
@@ -208,7 +216,8 @@ nav li {
 }
 
 nav a {
-  font-size: 1.3em;
+  font-size: 1.2rem;
+  line-height: 1.4rem;
   color: #181818;
   padding-bottom: 3px;
   text-decoration: none;
@@ -312,17 +321,51 @@ aside {
   width: 130px;
   height: 116px;
   border: 1px solid #181818;
-  background: url('../images/zozor_classe1.png') no-repeat center;
-  -webkit-transition: 0.4s linear;
+  background: url('../images/zozor_1.png') no-repeat center;
+  /* -webkit-transition: 0.4s linear;
   -moz-transition: 0.4s linear;
   -o-transition: 0.4s linear;
-  transition: 0.4s linear;
+  transition: 0.4s linear; */
+  animation: close-eyes 6s ease-in 2s infinite reverse both;
 }
 
 #photo_zozor:hover {
-  background: url('../images/zozor_classe2.png') no-repeat center;
+  background: url('../images/zozor_12.png') no-repeat center;
   border-radius: 20px;
 }
+
+@keyframes close-eyes {
+  0% {
+    background: url('../images/zozor_1.png') no-repeat center;
+  } 
+  1% {
+    background: url('../images/zozor_2.png') no-repeat center;
+  }
+  2% {
+    background: url('../images/zozor_3.png') no-repeat center;
+  }
+  3% {
+    background: url('../images/zozor_2.png') no-repeat center;
+  } 
+  4% {
+    background: url('../images/zozor_1.png') no-repeat center;
+  }
+ 
+
+}
+
+@keyframes stick-out {
+  0% {
+    background: url('../images/zozor_1.png') no-repeat center;
+  } 
+  50% {
+    background: url('../images/zozor_10.png') no-repeat center;
+  }
+  100% {
+    background: url('../images/zozor_11.png') no-repeat center;
+  }
+}
+
 
 .liens_externes {
   display: flex;
@@ -348,6 +391,25 @@ footer {
   padding-top: 15px;
   background: #663300;
   color: #ffffff;
+  opacity: 0;
+  animation: move-up 2s 300ms both; 
+}
+
+/* Pour faire apparaitre les éléments en montant et avec augmentatation de l'opacité */
+@keyframes move-up {
+  0% {
+    transform: translateY(120px);
+    opacity: 0;
+  } 
+
+  70%  {
+    transform: translateY(0);      
+    opacity: 0.8;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 footer p,
@@ -356,9 +418,9 @@ footer ul {
 }
 
 footer h1 {
-  font-size: 1.1em;
+  font-size: 1.9rem;
+  line-height: 2.0rem;
   text-align: center;
-  font-family: 2dumb, Impact, 'Arial Black', Arial, sans-serif;
 }
 
 #tweet {
@@ -422,4 +484,145 @@ footer h1 {
 #mes_amis a {
   text-decoration: none;
   color: #ffffcc;
+}
+
+/*  **********************************  */
+/*    Media query : max-width: 1024px    */
+/*  **********************************  */
+@media screen and (max-width: 1024px) {   
+  h1 {
+    font-size: 1.5rem;    
+    line-height: 1.7rem;
+    text-align: center;
+  }
+
+  #bloc_page {
+    /* largeur automatique au lieu de fixée à 900px */
+    width: auto;
+      }
+    
+  #banniere_image {
+    /* display : n'affichera pas le bloc pour afficher la banière */
+    display: none;
+    /* visibility : n'affichera pas la banière mais la zone d'affichage de l'image sera présent  */	
+    /*  visibility: hidden;  */	
+  }
+
+  #fleche_bulle {
+      position: absolute;
+      top: -12px;
+      left: 100px;
+    transform: rotate(90deg)
+  }
+
+  nav {
+    width: auto;
+    text-align: left;
+      }
+      
+  nav ul {
+    flex-direction: column;
+      }
+
+  nav li {
+    padding-left: 4px;
+      }
+      
+  nav a {
+    font-size: 1.1rem;
+    line-height: 1.4rem;
+    color: #181818;
+    padding-bottom: 3px;
+    text-decoration: none;
+  }
+      
+  nav a:hover {
+    border-bottom: 0;
+      }
+
+  section {
+    display: flex;
+      margin-bottom: 20px;
+      flex-direction: column;
+  }	
+
+
+      article, aside  {
+    width: auto;
+    margin-bottom: 15px;
+      }
+    
+  aside {
+      flex: 1.2;
+      position: relative;
+      background-color: #706b64;
+      box-shadow: 0px 2px 5px #1c1a19;
+      border-radius: 5px;
+      padding: 10px;
+      color: white;
+      font-size: 0.9em;
+    margin: auto;
+  }
+
+  #photo_zozor img {
+      width: 110px;
+      float: right;
+      margin-left: 15px;
+      }
+  
+  footer h1 {
+      font-size: 0.9em;
+      margin: 0 0 0 10px;
+  }  
+  
+  footer p {
+      font-size: 0.8em;
+  }  
+  #tweet {
+      width: 25%;
+    padding-left: 10px;
+    background: #663300;
+  }
+
+  #mes_photos {
+      width: 51%;
+    background: #663300;
+  }
+
+  #mes_amis {
+      width: 15%;
+    padding-left: 15px;
+    background: #663300;
+    padding-right: 10px;
+  }
+
+  #listes_amis {
+      flex-direction: column;
+  }
+  
+  #mes_amis a {
+      font-size: 0.9em;
+      flex-direction: column;
+  }   
+
+}
+
+
+/*  **********************************  */
+/*    Media query : max-width: 640px    */
+/*  **********************************  */
+@media (max-width: 640px) { 
+  h1 {
+    font-size: 1.5em;    
+    line-height: 1.8rem;
+  }
+  
+  nav ul {
+    padding-left: 5px;
+  }
+        
+  nav a {
+    font-size: 0.8rem;
+    line-height: 1.0rem;
+  }
 }

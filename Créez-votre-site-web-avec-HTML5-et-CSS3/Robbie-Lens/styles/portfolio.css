@@ -1,0 +1,83 @@
+.portfolio-section-photos {
+  background-color: white;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center; */
+}
+
+.portfolio-section-photos h2 {
+  color: #242424;
+  margin: 40px 0 20px;
+}
+
+.portfolio-paysages {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 300px 300px 300px;
+  gap: 15px;
+}
+
+.portfolio-portaits {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 300px 300px;
+  gap: 20px;
+}
+
+.portfolio-portaits a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.portfolio-paysages img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.portfolio-portaits img {
+  width: 70%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.lien-conteneur-photo {
+  position: relative;
+}
+
+.photo-hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5em;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: none;
+}
+
+.lien-conteneur-photo:hover .photo-hover {
+  display: flex;
+}
+
+/* Nouvelles règles si la fenêtre fait au plus 1024px de large */
+@media screen and (max-width: 1024px) {
+  .portfolio-paysages {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 300px 300px 300px 300px 300px 300px 300px 300px 300px;
+  }
+  
+  .portfolio-portaits {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 300px 300px 300px 300px 300px 300px;
+  }
+}

@@ -1,0 +1,151 @@
+@font-face {
+  font-family: 'Manrope';
+  src: url('/fonts/Manrope-VariableFont_wght.ttf') format('truetype');
+}
+
+* {
+  margin: 0;
+}
+
+body {
+  font-family: Manrope, sans-serif;
+  font-size: 1em;
+  background: #1f2039;
+}
+
+header,
+footer {
+  background: white;
+  padding: 20px 50px;
+}
+
+footer,
+nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.container-connections {
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+  justify-content: space-around;
+}
+
+section {
+  padding: 80px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3.5em;
+  color: #a5b4fc;
+  text-decoration: none;
+  font-weight: normal;
+  font-style: normal;
+  text-align: center;
+}
+
+h2 {
+  color: #f9f8ff;
+}
+
+a {
+  color: #242424;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  text-decoration-color: red;
+}
+
+
+p,
+li {
+  font-size: 1.1em;
+  color: #f9f8ff;
+}
+
+li,
+a {
+  font-size: 1em;
+}
+
+em {
+  color: #a5b4fc;
+  font-style: normal;
+}
+
+.lien_mailto,
+.lien_portoflio,
+.lien-btn {
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  background: linear-gradient(#8e86b5, #acaeed);
+  color: white;
+  border-radius: 50px;
+  text-decoration: none;
+  margin-top: 20px;
+  padding: 20px 30px;
+  text-transform: uppercase;
+}
+
+.lien_mailto:hover,
+.lien_portoflio:hover,
+.lien-btn:hover {
+  background: linear-gradient(#696484, #8788ba);
+  text-decoration: none;
+}
+
+.lien-icone {
+  margin-left: 30px;
+}
+
+.lien-icone:hover,
+.lien-icone:focus {
+  opacity: 0.5;
+}
+
+/* Nouvelles règles si la fenêtre fait au plus 1024px de large */
+@media screen and (max-width: 1024px) {
+  h1 {
+    font-size: 2em;
+  }
+
+  p {
+    overflow: auto;
+  }
+
+  .lien_mailto,
+  .lien_portoflio,
+  .lien-btn {
+    margin-top: 10px;
+    padding: 10px 15px;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  header,
+  footer {
+    padding: 10px 10px;
+  }
+  
+  nav {
+	font-size:0.9em;
+  }
+    
+  .container-connections {
+    width: 60%;
+  }
+}

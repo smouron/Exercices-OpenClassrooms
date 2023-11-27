@@ -3,29 +3,30 @@
 Ce dépôt git contient mes avancés dans la réalisation des files rouges et des exercices
 qui sont fait durant ces cours.
 
-Mais également des essais effectués suite à certains cours.
-
 ## Cours OpenClassRooms
 
 ### Apprenez à créer votre site web avec HTML5 et CSS3
 
-#### Carnet de voyage de Totor / responsive design
+**Carnets de voyage de Totor / responsive design**
 
-    - Reproduction du cour sans ajout personnel particulier
-    - Ajout diférents effets CSS
-    - Site visibile : https://www.sanoecreation.fr/OpenClassRooms/Carnet-de-voyage-de-Totor/
+- Reproduction du cour sans ajout personnel particulier (création d'une page HTML à partir d'une maquette sans aucun effets)
+
+> [!NOTE]
+> Par la suite, j'ai ajouté de nombreux effets CSS
+
+![Carnets de voyage de Totor](/Apprenez-a-creer-votre-site-web-avec-HTML5-et-CSS3/monitor-g9ceeb1f8d_640.png)
+
+    [Le site "Carnets de voyage de Totor" visible en ligne](https://stephane-mouron.fr/OpenClassrooms/Carnet-de-voyage-de-Totor/index.html)
 
 ### Concevez votre site web avec PHP et MySQL - Fait en décembre 2022
 
-#### 1ère partie : réalisation du site sans base de données
+**Site-de-recettes**
 
-    - Site visibile : https://www.sanoecreation.fr/OpenClassRooms/Site-de-recettes/Sans-BD/home.php
+1ère partie : réalisation du site sans base de données
 
-#### 2ème et 3ème partie : avec d'une base de données MySQL
+2ème et 3ème partie : réalisation du même site mais avec d'une base de données MySQL
 
-    - Site visibile : https://www.sanoecreation.fr/OpenClassRooms/Site-de-recettes/Avec-BD/home.php
-
-#### Ajout de fonctionnalité par rapport à ce qui était demandé :
+#### Ajout de fonctionnalité en plus par rapport à ce qui a été fait dans le cours :
 
     - une tri filtre acsendant / descendant qui reste actif même quand on change de page.
     - la gestion des recettes qui ne sont pas affichées.
@@ -33,9 +34,40 @@ Mais également des essais effectués suite à certains cours.
     - ajout d'affichage de commentaires et de leur gestion (supression, ajout et modification).
     - ajout de l'affichage de notes avec des étoiles.
 
-## Exercices_Personnels
+#### Version réalisée
 
-### Copie OpenClassRooms - Fait en novembre 2022
+![Site-de-recettes](/Concevez-votre-site-web-avec-PHP-MySQL/Site-de-recettes/monitor-g9ceeb1f8d_640.png)
 
-    - Tentative de faire une copie du site d'OpenClassRooms (page Cours en libre accès). Uniquement la partie visible (HTML + CSS).
-    - Site visibile : https://www.sanoecreation.fr/OpenClassRooms/Copie_OpenClassRooms/
+    [Le site "Site-de-recettes" avec MySQL, visible en ligne ](https://stephane-mouron.fr/OpenClassrooms/recettes/home.php)
+
+> [!NOTE]
+> La version sans MySQL n'est plus en ligne
+
+### Créez votre site web avec HTML5 et CSS3
+
+**Robbie Lens**
+
+- Au départ, reproduction du cour sans ajout personnel particulier
+- Le cours ne reporduit pas l'intégralité de la maquette sur Figma : j'ai donc réalisé la partie manquante et réajusté le rendu final pour qu'il corresponde à la maquette (le cours ne le faisant pas à 100%)
+
+#### Version réalisée
+
+![Robbie Lens](/Créez-votre-site-web-avec-HTML5-et-CSS3/monitor-g9ceeb1f8d_640.png)
+
+    [Le site "Robbie Lens" visible en ligne](https://stephane-mouron.fr/OpenClassrooms/recettes/home.php)
+
+### Allez plus loin avec WordPress
+
+**BricoTips**
+
+- Création d'un WordPress pour afficher un lexique à partir d'un thème enfant personnalisé
+- Création de plugins et de shortcodes personnalisé
+
+> [!NOTE]
+> Je n'ai apporté aucune touche personnelle à ce projet
+
+#### Version réalisée
+
+![Robbie Lens](/Allez-plus-loin-avec-WordPress/monitor-g9ceeb1f8d_640.png)
+
+    [Le site "Robbie Lens" visible en ligne](https://stephane-mouron.fr/OpenClassrooms/bricotips/)
