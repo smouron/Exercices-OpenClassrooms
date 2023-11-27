@@ -16,7 +16,7 @@ qui sont fait durant ces cours.
 
 ![Carnets de voyage de Totor](/Apprenez-a-creer-votre-site-web-avec-HTML5-et-CSS3/monitor-g9ceeb1f8d_640.png)
 
-    [Le site "Carnets de voyage de Totor" visible en ligne](https://stephane-mouron.fr/OpenClassrooms/Carnet-de-voyage-de-Totor/index.html)
+[Le site "Carnets de voyage de Totor" visible en ligne](https://stephane-mouron.fr/OpenClassrooms/Carnet-de-voyage-de-Totor/index.html)
 
 <hr />
 
