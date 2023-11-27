@@ -18,6 +18,8 @@ qui sont fait durant ces cours.
 
     [Le site "Carnets de voyage de Totor" visible en ligne](https://stephane-mouron.fr/OpenClassrooms/Carnet-de-voyage-de-Totor/index.html)
 
+<hr />
+
 ### Concevez votre site web avec PHP et MySQL - Fait en décembre 2022
 
 **Site-de-recettes**
@@ -43,6 +45,8 @@ qui sont fait durant ces cours.
 > [!NOTE]
 > La version sans MySQL n'est plus en ligne
 
+<hr />
+
 ### Créez votre site web avec HTML5 et CSS3
 
 **Robbie Lens**
@@ -55,6 +59,8 @@ qui sont fait durant ces cours.
 ![Robbie Lens](/Créez-votre-site-web-avec-HTML5-et-CSS3/monitor-g9ceeb1f8d_640.png)
 
 [Le site "Robbie Lens" visible en ligne](https://stephane-mouron.fr/OpenClassrooms/recettes/home.php)
+
+<hr />
 
 ### Allez plus loin avec WordPress
 
