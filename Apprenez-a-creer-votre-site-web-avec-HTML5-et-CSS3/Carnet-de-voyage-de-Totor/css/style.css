@@ -16,8 +16,8 @@ body {
   margin: auto;
 }
 
-section h1,
-footer h1,
+h2,
+h3,
 nav a {  
   font-family: 'Karla', sans-serif;
   font-weight: normal;
@@ -100,12 +100,17 @@ header::after {
   height: 70px;
 }
 
-h1 {
+h1,
+h2, 
+h3 {
   font-family: 'Permanent Marker', cursive;
-  font-size: 2rem;
-  line-height: 2.2rem;
   font-weight: normal;
   margin: 0 0 0 10px;
+}
+
+h1 {
+  font-size: 2rem;
+  line-height: 2.2rem;
 }
 
 h1 span {
@@ -195,13 +200,17 @@ h1 span:nth-child(14) {
   animation-delay: 1.3s;
 }
 
-
-header h2 {  
-  font-family: 'Karla', sans-serif;
-  font-size: 1.1em;
-  margin-top: 0px;
-  font-weight: normal;
+h2 {
+  font-size: 1.6rem;
+  line-height: 1.8rem;
 }
+
+h3 {
+  font-size: 1.2rem;
+  line-height: 1.4rem;
+  text-align: center;
+}
+
 
 /* Navigation */
 
@@ -317,7 +326,7 @@ aside {
 
 #photo_zozor {
   text-align: center;
-  margin: 0 auto;
+  margin: 10px auto 0;
   width: 130px;
   height: 116px;
   border: 1px solid #181818;
