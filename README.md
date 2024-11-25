@@ -16,7 +16,7 @@ qui sont fait durant ces cours.
 
 ![Carnets de voyage de Totor](/Apprenez-a-creer-votre-site-web-avec-HTML5-et-CSS3/monitor-g9ceeb1f8d_640.png)
 
-[Le site "Carnets de voyage de Totor" visible en ligne](https://stephane-mouron.fr/OpenClassrooms/Carnet-de-voyage-de-Totor/index.html)
+[Le site "Carnets de voyage de Totor" visible en ligne](https://exercices.stephane-mouron.com/carnet-de-totor/index.html)
 
 <hr />
 
@@ -40,10 +40,9 @@ qui sont fait durant ces cours.
 
 ![Site-de-recettes](/Concevez-votre-site-web-avec-PHP-MySQL/Site-de-recettes/monitor-g9ceeb1f8d_640.png)
 
-[Le site "Site-de-recettes" avec MySQL, visible en ligne ](https://stephane-mouron.fr/OpenClassrooms/recettes/home.php)
 
 > [!NOTE]
-> La version sans MySQL n'est plus en ligne
+> Le site n'est plus en ligne
 
 <hr />
 
@@ -58,7 +57,7 @@ qui sont fait durant ces cours.
 
 ![Robbie Lens](/Créez-votre-site-web-avec-HTML5-et-CSS3/monitor-g9ceeb1f8d_640.png)
 
-[Le site "Robbie Lens" visible en ligne](https://stephane-mouron.fr/OpenClassrooms/recettes/home.php)
+[Le site "Robbie Lens" visible en ligne](https://exercices.stephane-mouron.com/Robbie-Lens/index.html)
 
 <hr />
 
@@ -76,4 +75,5 @@ qui sont fait durant ces cours.
 
 ![Robbie Lens](/Allez-plus-loin-avec-WordPress/monitor-g9ceeb1f8d_640.png)
 
-[Le site "Robbie Lens" visible en ligne](https://stephane-mouron.fr/OpenClassrooms/bricotips/)
+> [!NOTE]
+> Le site n'est plus en ligne
